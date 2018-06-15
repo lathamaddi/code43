@@ -10,15 +10,27 @@ import { MatSnackBarModule, MatSelectModule, MatInputModule, MatSidenavModule, M
 import { MatRadioModule, MatProgressSpinnerModule, MatTabsModule, MatListModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app.routing.module';
+import { MainComponent } from './main/main.component';
+import { HostsComponent } from './hosts/hosts.component';
+import { AdvertiseComponent } from './advertise/advertise.component';
+import { AgenciesComponent } from './agencies/agencies.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+    MainComponent,
+    HostsComponent,
+    AdvertiseComponent,
+    AgenciesComponent,
+    SigninComponent
+],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     MatToolbarModule,
     MatCommonModule,
     MatMenuModule,
