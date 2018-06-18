@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgenciesComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log('Agencies constructor called.');
+  }
 
   ngOnInit() {
+    console.log('Agencies intialized.');
   }
 
 }

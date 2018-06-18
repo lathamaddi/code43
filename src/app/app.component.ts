@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
   constructor(private router: Router) {
+    this.routeLinks = [];
     this.routeLinks = [
       {
           label: 'Hosts',

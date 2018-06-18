@@ -1,28 +1,46 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
-import { HostsComponent } from './hosts/hosts.component';
-import { AdvertiseComponent } from './advertise/advertise.component';
-import { AgenciesComponent } from './agencies/agencies.component';
-import { SigninComponent } from './signin/signin.component';
 
-const routes: Routes = [
+const ROUTES: Routes = [
     {
         path: '',
         redirectTo: 'main',
         pathMatch: 'full'
     },
     { path: 'main', component: MainComponent },
-    { path: 'hosts', component: HostsComponent },
-    { path: 'advertise', component: AdvertiseComponent },
-    { path: 'agencies', component: AgenciesComponent },
-    { path: 'signin', component: SigninComponent },
+    {
+        path: 'hosts',
+        loadChildren: './hosts/hosts.module#HostsModule',
+        data: { title: 'Hosts', preload: true }
+    },
+    {
+        path: 'advertise',
+        loadChildren: './advertise/advertise.module#AdvertiseModule',
+        data: { title: 'Advertise', preload: true }
+    },
+    {
+        path: 'agencies',
+        loadChildren: './agencies/agencies.module#AgenciesModule',
+        data: { title: 'Agencies', preload: true }
+    },
+    {
+        path: 'signin',
+        loadChildren: './signin/signin.module#SigninModule',
+        data: { title: 'SignIn', preload: true }
+    },
     { path: '**', redirectTo: 'main', pathMatch: 'full' }
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(ROUTES, {
+          useHash: true
+        }),
+        BrowserModule,
+        BrowserAnimationsModule
     ],
     exports: [
         RouterModule
