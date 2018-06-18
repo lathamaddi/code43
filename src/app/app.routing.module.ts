@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
+import { MatCardModule } from '../../node_modules/@angular/material';
 
 const ROUTES: Routes = [
     {
@@ -40,7 +41,8 @@ const ROUTES: Routes = [
           useHash: true
         }),
         BrowserModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatCardModule 
     ],
     exports: [
         RouterModule
