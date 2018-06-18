@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '../../../node_modules/@angular/material';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private snackBar:MatSnackBar,private route:Router) { }
+   userName:string;
+   passWord:string;
+   
   ngOnInit() {
+  }
+  
+  login()
+  {
+    if(this.userName=="user"&&this.passWord=="user")
+    {
+      this.route.navigate(['advertise']); 
+    }
+    else
+    {
+      this.snackBar.open('invalid credentials', '', {
+        duration: 5000,
+      });
+      
+    }
+   
   }
 
 }
