@@ -32,6 +32,11 @@ const ROUTES: Routes = [
         loadChildren: './signin/signin.module#SigninModule',
         data: { title: 'SignIn', preload: true }
     },
+    {
+        path: 'signup',
+        loadChildren: './signup/signup.module#SignUpModule',
+        data: { title: 'signup', preload: true }
+    },
     { path: '**', redirectTo: 'main', pathMatch: 'full' }
 ];
 

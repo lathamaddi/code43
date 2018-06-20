@@ -10,8 +10,9 @@
  
   <mat-grid-tile class='login-element'>
     <div class="login-container">
-
-    
+      <div style="justify-content: flex-end;align-content: flex-end;padding-left: 85%;">
+      <a [routerLink]="['/signup']" >Sign Up</a>
+      </div>
       <div class="login-box-header">
         Spottv
       </div>
@@ -48,10 +49,11 @@
         <button md-raised-button class="login-button" (click)="login()">
           <mat-icon>input</mat-icon> Login
         </button>
-
+        <br/>
+      
       </div>
  
-
+       
     </div>
   </mat-grid-tile>
   

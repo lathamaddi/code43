@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HostsComponent implements OnInit {
 
+  primarycolor:string;
+  index:number;
   constructor() { }
 
   ngOnInit() {
+    this.primarycolor="primary";
+    this.index=1;
   }
 
 }
