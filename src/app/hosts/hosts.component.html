@@ -1,1 +1,38 @@
-<h1 style="padding-top:5px; text-align: center;">Hosts - Content Not Available!</h1>
+
+      
+      <mat-tab-group [(selectedIndex)]="index"  style="width: 85%;margin-left: 10%;min-height: 500px;padding: 20px;"
+       [backgroundColor]="primarycolor">
+          <mat-tab > 
+              <ng-template mat-tab-label>
+              <mat-icon class="tab-icon">home</mat-icon>
+              
+            </ng-template>
+          </mat-tab>
+        <mat-tab label=" My Clients" >
+          <div style="padding:10px 0 0 40%;">
+              <h2>Choose a client</h2>
+             <ul style="font-size: 18px;">
+               <li>
+                  <a>Coca Cola</a>
+               </li>
+               <li>
+                  <a>Queen Anne Dentists</a>
+               </li>
+               <li>
+                  <a>Seattle REIT Developers</a>
+               </li>
+               <li>
+                  <a>Donner & Blitzen L.L.C.</a>
+               </li>
+             </ul>
+              
+             <input type="submit" name="signup_submit" value="ADD NEW CLIENT"  />
+              
+          </div>
+         
+        
+        </mat-tab>
+        <mat-tab label="Dashboard"> Dashboard </mat-tab>
+        <mat-tab label=" Ad Library"> Ad Library </mat-tab>
+        <mat-tab label=" Update Profile"> Ad Library </mat-tab>
+      </mat-tab-group>
