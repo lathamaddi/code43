@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { MatCardModule } from '../../node_modules/@angular/material';
+import { CreateCampaignComponent } from './campaign/create-campaign.component';
 
 const ROUTES: Routes = [
     {
@@ -36,6 +37,11 @@ const ROUTES: Routes = [
         path: 'signup',
         loadChildren: './signup/signup.module#SignUpModule',
         data: { title: 'signup', preload: true }
+    },
+    {
+        path: 'campaign', 
+        loadChildren: './campaign/campaign.module#CampaignModule',
+        data: { title: 'campaign', preload: true }
     },
     { path: '**', redirectTo: 'main', pathMatch: 'full' }
 ];

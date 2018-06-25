@@ -20,7 +20,7 @@ export class SigninComponent implements OnInit {
   {
     if(this.userName=="user"&&this.passWord=="user")
     {
-      this.route.navigate(['signup']); 
+      this.route.navigate(['hosts']); 
     }
     else
     {
