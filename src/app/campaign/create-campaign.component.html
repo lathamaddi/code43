@@ -1,42 +1,20 @@
 
-<div id="login-box">
+      
+      <mat-tab-group 
+      style="width: 85%;margin-left: 10%;min-height: 500px;padding: 20px;"
+     [backgroundColor]="primarycolor">
+       
+      <mat-tab label="Define Critieria" >
+        
+       <app-place-campaign></app-place-campaign>
+
+      </mat-tab>
+      <mat-tab label="Select Placements">  <div id="login-box" style="margin-top: 5%;">
 
 
     <div class="left">
 
-        <table >
-            <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                Where would you like to place
-                your ads?</h2>
-            <tr>
-                <h4>Cities</h4>
-            </tr>
-            <tr>
-                <mat-checkbox>All</mat-checkbox><br/>
-              <mat-checkbox>Bellevue</mat-checkbox>
-              <br/>
-              <mat-checkbox>Seattle</mat-checkbox><br/>
-              <mat-checkbox>Kirkland</mat-checkbox><br/>
-            </tr>
-            <tr>
-               
-                  <tr>
-                      <h4>Cities</h4>
-                  </tr>
-                  <tr>
-                    <mat-checkbox>Dining - Upscale</mat-checkbox>
-                    <br/>
-                    <mat-checkbox>Dining - Casual</mat-checkbox><br/>
-                    <mat-checkbox>Bar - Upscale</mat-checkbox><br/>
-                    <mat-checkbox>Bar - Casual</mat-checkbox><br/>
-                  </tr>
-
-           
-          
-            <tr>
-                <input type="submit" name="signup_submit" value="NEXT" (click)="next()" />
-            </tr>
-        </table>
+      
       
     </div>
 
@@ -76,5 +54,11 @@
 
 
     </div>
-    <!-- <div class="or">OR</div> -->
-</div>
+  
+</div> </mat-tab>
+      <mat-tab label=" Ad Creative"> Ad Library </mat-tab>
+   
+     
+    </mat-tab-group>
+
+

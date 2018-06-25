@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { MatToolbarModule, MatStepperModule } from '@angular/material';
+import { MatToolbarModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatCommonModule } from '@angular/material';
 import { MatMenuModule, MatButtonModule, MatCheckboxModule, MatChipsModule, MatOptionModule } from '@angular/material';
 import { MatGridListModule, MatProgressBarModule, MatSliderModule, MatSlideToggleModule, MatDialogModule } from '@angular/material';
@@ -11,6 +11,7 @@ import { MatSnackBarModule, MatSelectModule, MatInputModule, MatSidenavModule, M
 import { MatRadioModule, MatProgressSpinnerModule, MatTabsModule, MatListModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { CreateCampaignComponent } from './create-campaign.component';
+import { PlaceCampaignComponent } from './place-campaign/place-campaign.component';
 
 
 
@@ -30,7 +31,7 @@ const createModuleRoutes: Routes = [
 @NgModule({
   imports: [
     FormsModule,
-    
+    MatTabsModule,
     MatCommonModule,
     MatMenuModule,
     MatButtonModule,
@@ -50,18 +51,18 @@ const createModuleRoutes: Routes = [
     MatIconModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatTabsModule,
-    MatListModule,MatStepperModule,
+    MatTabsModule,MatDatepickerModule,
+    MatListModule,MatStepperModule,MatNativeDateModule,
     CommonModule,
     RouterModule.forChild(createModuleRoutes),
   ],
   exports: [RouterModule, 
     FormsModule,
-    
+    MatDatepickerModule,
     MatToolbarModule,
-    MatCommonModule,
+    MatCommonModule,MatNativeDateModule,
     MatMenuModule,
-    MatStepperModule,
+    MatStepperModule,MatTabsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatChipsModule,
@@ -81,6 +82,6 @@ const createModuleRoutes: Routes = [
     MatProgressSpinnerModule,
     MatTabsModule,MatSnackBarModule,
     MatListModule],
-  declarations: [CreateCampaignComponent]
+  declarations: [CreateCampaignComponent, PlaceCampaignComponent]
 })
 export class CampaignModule { }
