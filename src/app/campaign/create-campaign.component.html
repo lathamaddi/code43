@@ -1,0 +1,80 @@
+
+<div id="login-box">
+
+
+    <div class="left">
+
+        <table >
+            <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                Where would you like to place
+                your ads?</h2>
+            <tr>
+                <h4>Cities</h4>
+            </tr>
+            <tr>
+                <mat-checkbox>All</mat-checkbox><br/>
+              <mat-checkbox>Bellevue</mat-checkbox>
+              <br/>
+              <mat-checkbox>Seattle</mat-checkbox><br/>
+              <mat-checkbox>Kirkland</mat-checkbox><br/>
+            </tr>
+            <tr>
+               
+                  <tr>
+                      <h4>Cities</h4>
+                  </tr>
+                  <tr>
+                    <mat-checkbox>Dining - Upscale</mat-checkbox>
+                    <br/>
+                    <mat-checkbox>Dining - Casual</mat-checkbox><br/>
+                    <mat-checkbox>Bar - Upscale</mat-checkbox><br/>
+                    <mat-checkbox>Bar - Casual</mat-checkbox><br/>
+                  </tr>
+
+           
+          
+            <tr>
+                <input type="submit" name="signup_submit" value="NEXT" (click)="next()" />
+            </tr>
+        </table>
+      
+    </div>
+
+    <div class="right">
+        <table>
+
+            <tr style="align-content: center;">
+              Define your placement
+              criteria
+            </tr>
+            <tr>
+                <mat-vertical-stepper [selectedIndex]="0" style="background-color: transparent;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+                    [linear]="false" #stepper>
+                    <mat-step>
+
+                        <ng-template matStepLabel>Where?</ng-template>
+
+                    </mat-step>
+
+                    <mat-step>
+
+                        <ng-template matStepLabel>When? </ng-template>
+
+                    </mat-step>
+                    <mat-step>
+
+                        <ng-template matStepLabel>How Often? </ng-template>
+
+                    </mat-step>
+                   
+                </mat-vertical-stepper>
+            </tr>
+        </table>
+
+
+
+
+
+    </div>
+    <!-- <div class="or">OR</div> -->
+</div>
