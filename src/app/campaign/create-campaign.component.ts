@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
+import { HostServicesService } from '../services/host-services.service';
 
 @Component({
   selector: 'app-create-campaign',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCampaignComponent implements OnInit {
 
-  constructor() { }
+  primarycolor:string;
+  index:number;
+  public isAddAgency:boolean;
+  constructor(private ref: ChangeDetectorRef,private hostService:HostServicesService,private viewRef:ViewContainerRef)
+   {this.isAddAgency=false;
+   }
 
+ 
   ngOnInit() {
+    this.primarycolor="primary";
+    this.index=1;
+    
+    
   }
 
 }
