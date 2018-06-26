@@ -1,29 +1,37 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BroadcasterService } from 'ng-broadcaster';
-import { AppComponent } from './app.component';
-import { MatToolbarModule } from '@angular/material';
+import { CommonModule } from '@angular/common';
+
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+import { MatToolbarModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatCommonModule } from '@angular/material';
 import { MatMenuModule, MatButtonModule, MatCheckboxModule, MatChipsModule, MatOptionModule } from '@angular/material';
 import { MatGridListModule, MatProgressBarModule, MatSliderModule, MatSlideToggleModule, MatDialogModule } from '@angular/material';
 import { MatSnackBarModule, MatSelectModule, MatInputModule, MatSidenavModule, MatCardModule, MatIconModule } from '@angular/material';
 import { MatRadioModule, MatProgressSpinnerModule, MatTabsModule, MatListModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app.routing.module';
-import { MainComponent } from './main/main.component';
+import { CreateCampaignComponent } from './create-campaign.component';
+import { PlaceCampaignComponent } from './place-campaign/place-campaign.component';
+
+
+
+
+const createModuleRoutes: Routes = [
+  {
+    path: '',
+    component: CreateCampaignComponent,
+    children: [
+      {
+        path: '', component: CreateCampaignComponent
+      }
+    ]
+  }
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent
-  ],
   imports: [
-    BrowserModule,
     FormsModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    MatToolbarModule,
+    MatTabsModule,
     MatCommonModule,
     MatMenuModule,
     MatButtonModule,
@@ -43,20 +51,26 @@ import { MainComponent } from './main/main.component';
     MatIconModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatTabsModule,
-    MatListModule
+    MatTabsModule,MatDatepickerModule,
+    MatListModule,MatStepperModule,MatNativeDateModule,
+    CommonModule,
+    RouterModule.forChild(createModuleRoutes),
   ],
-  exports: [
+  exports: [RouterModule, 
+    FormsModule,
+    MatDatepickerModule,
+    MatToolbarModule,
+    MatCommonModule,MatNativeDateModule,
+    MatMenuModule,
+    MatStepperModule,MatTabsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatToolbarModule,
     MatChipsModule,
     MatOptionModule,
     MatGridListModule,
     MatProgressBarModule,
     MatSliderModule,
     MatSlideToggleModule,
-    MatMenuModule,
     MatDialogModule,
     MatSnackBarModule,
     MatSelectModule,
@@ -66,10 +80,8 @@ import { MainComponent } from './main/main.component';
     MatIconModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatTabsModule,
-    MatListModule
-  ],
-  providers: [BroadcasterService],
-  bootstrap: [AppComponent]
+    MatTabsModule,MatSnackBarModule,
+    MatListModule],
+  declarations: [CreateCampaignComponent, PlaceCampaignComponent]
 })
-export class AppModule { }
+export class CampaignModule { }

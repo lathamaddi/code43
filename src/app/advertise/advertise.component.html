@@ -1,0 +1,16 @@
+<mat-toolbar style="background: lightblue;" *ngIf="!isAdvertiseMenuHidden">
+    <span><i class="fa fa-home"></i></span>
+    <nav mat-tab-nav-bar style="float: right;margin-left: 380px;" >
+      <a mat-tab-link
+         *ngFor="let routeLink of routeLinks; let i = index;"
+         [routerLink]="routeLink.link"
+         routerLinkActive="mat-tab-link-active"
+         #rla="routerLinkActive"  
+         [active]="activeLinkIndex === i"
+         (click)="activeLinkIndex = i"
+         [routerLinkActiveOptions]="{exact: true}">
+          {{routeLink.label}} 
+      </a>
+    </nav>
+  </mat-toolbar>
+  <router-outlet></router-outlet>

@@ -1,0 +1,62 @@
+<!-- 
+    Login template using Angular Material
+    @author Siva
+-->
+
+
+<mat-grid-list cols="3">
+  <mat-grid-tile></mat-grid-tile>
+
+ 
+  <mat-grid-tile class='login-element'>
+    <div class="login-container">
+      <div style="justify-content: flex-end;align-content: flex-end;padding-left: 85%;">
+      <a [routerLink]="['/signup']" >Sign Up</a>
+      </div>
+      <div class="login-box-header">
+        Spottv
+      </div>
+     
+      <div class="login-box-body">
+
+        
+        <mat-grid-list cols="9" rowHeight="75px">
+          <mat-grid-tile [rowspan]="1" class="login-icon">
+            <mat-icon>lock</mat-icon>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="7">
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="USER NAME" [(ngModel)]="userName">
+            </mat-form-field>
+
+          </mat-grid-tile>
+        </mat-grid-list>
+        
+        <mat-grid-list cols="9" rowHeight="100px">
+          <mat-grid-tile [rowspan]="1" class="login-icon">
+            <mat-icon>remove_red_eye</mat-icon>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="7">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="PASSWORD" type="password" [(ngModel)]="passWord">
+            </mat-form-field>
+
+          </mat-grid-tile>
+        </mat-grid-list>
+       
+
+        <button md-raised-button class="login-button" (click)="login()">
+          <mat-icon>input</mat-icon> Login
+        </button>
+        <br/>
+      
+      </div>
+ 
+       
+    </div>
+  </mat-grid-tile>
+  
+  <mat-grid-tile></mat-grid-tile>
+
+</mat-grid-list>

@@ -1,7 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BroadcasterService } from 'ng-broadcaster';
-import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
+import { SigninComponent } from './signin.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
 import { MatToolbarModule } from '@angular/material';
 import { MatCommonModule } from '@angular/material';
 import { MatMenuModule, MatButtonModule, MatCheckboxModule, MatChipsModule, MatOptionModule } from '@angular/material';
@@ -9,21 +10,25 @@ import { MatGridListModule, MatProgressBarModule, MatSliderModule, MatSlideToggl
 import { MatSnackBarModule, MatSelectModule, MatInputModule, MatSidenavModule, MatCardModule, MatIconModule } from '@angular/material';
 import { MatRadioModule, MatProgressSpinnerModule, MatTabsModule, MatListModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app.routing.module';
-import { MainComponent } from './main/main.component';
+
+
+
+const signinModuleRoutes: Routes = [
+  {
+    path: '',
+    component: SigninComponent,
+    children: [
+      {
+        path: '', component: SigninComponent
+      }
+    ]
+  }
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent
-  ],
   imports: [
-    BrowserModule,
     FormsModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    MatToolbarModule,
+    
     MatCommonModule,
     MatMenuModule,
     MatButtonModule,
@@ -44,19 +49,24 @@ import { MainComponent } from './main/main.component';
     MatRadioModule,
     MatProgressSpinnerModule,
     MatTabsModule,
-    MatListModule
+    MatListModule,
+    CommonModule,
+    RouterModule.forChild(signinModuleRoutes),
   ],
-  exports: [
+  exports: [RouterModule, 
+    FormsModule,
+    
+    MatToolbarModule,
+    MatCommonModule,
+    MatMenuModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatToolbarModule,
     MatChipsModule,
     MatOptionModule,
     MatGridListModule,
     MatProgressBarModule,
     MatSliderModule,
     MatSlideToggleModule,
-    MatMenuModule,
     MatDialogModule,
     MatSnackBarModule,
     MatSelectModule,
@@ -66,10 +76,8 @@ import { MainComponent } from './main/main.component';
     MatIconModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatTabsModule,
-    MatListModule
-  ],
-  providers: [BroadcasterService],
-  bootstrap: [AppComponent]
+    MatTabsModule,MatSnackBarModule,
+    MatListModule],
+  declarations: [SigninComponent]
 })
-export class AppModule { }
+export class SigninModule { }

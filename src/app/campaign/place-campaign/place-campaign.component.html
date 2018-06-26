@@ -1,0 +1,159 @@
+
+<div id="login-box" style="margin-top: 3%;">
+
+
+    <div class="left">
+
+        <table *ngIf="where">
+            <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                Where would you like to place
+                your ads?</h2>
+            <tr>
+                <h4>Cities</h4>
+            </tr>
+            <tr>
+                <mat-checkbox>All</mat-checkbox><br/>
+              <mat-checkbox>Bellevue</mat-checkbox>
+              <br/>
+              <mat-checkbox>Seattle</mat-checkbox><br/>
+              <mat-checkbox>Kirkland</mat-checkbox><br/>
+            </tr>
+            <tr>
+               
+                  <tr>
+                      <h4>Cities</h4>
+                  </tr>
+                  <tr>
+                    <mat-checkbox>Dining - Upscale</mat-checkbox>
+                    <br/>
+                    <mat-checkbox>Dining - Casual</mat-checkbox><br/>
+                    <mat-checkbox>Bar - Upscale</mat-checkbox><br/>
+                    <mat-checkbox>Bar - Casual</mat-checkbox><br/>
+                  </tr>
+
+           
+          
+            <tr>
+                <input type="submit" name="signup_submit" value="NEXT" (click)="next()" />
+            </tr>
+        </table>
+        <table *ngIf="when">
+            <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                When do you want to run your
+                campaign?</h2>
+            <tr>
+                <h4>Start Date</h4>
+            </tr>
+            <tr>
+                <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+            </tr>
+            <tr>
+               
+                  <tr>
+                      <h4>Duration</h4>
+                  </tr>
+                  <tr>
+                      <mat-slider
+                      thumbLabel
+                      [displayWith]="formatLabel"
+                      tickInterval="1"
+                      min="1"
+                      max="12"></mat-slider>
+                  </tr>
+
+           
+          
+                  <tr>
+                    <table>
+                      <tr>
+                        <td>
+                            <input type="submit" name="signup_submit" value="BACK" (click)="back()" />
+                        </td>
+                        <td>
+                            <input type="submit" name="signup_submit" value="NEXT" (click)="run()" />
+                        </td>
+                      </tr>
+                    </table>
+                     
+                  </tr>
+        </table>
+        <table *ngIf="how">
+            <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                How often would you like your
+                ads to run?</h2>
+            
+           
+            <tr>
+               
+                
+                  <tr>
+                   
+                    <td>
+                        <mat-slider
+                        thumbLabel style="width: 400px;"
+                        [displayWith]="formatLabel"
+                        tickInterval="1" item-width="100%"
+                        min="1"
+                        max="12"></mat-slider>
+                    </td>
+                    
+                     
+                  </tr>
+
+           
+          
+                  <tr>
+                    <table>
+                      <tr>
+                        <td>
+                            <input type="submit" name="signup_submit" value="BACK" (click)="back()" />
+                        </td>
+                        <td>
+                            <input type="submit" name="signup_submit" value="SELECT PLACEMENTS" (click)="run()" />
+                        </td>
+                      </tr>
+                    </table>
+                     
+                  </tr>
+        </table>
+    </div>
+
+    <div class="right">
+        <table>
+
+            <tr style="align-content: center;">
+                You’re about to place an ad on the newest OOH inventory
+            </tr>
+            <tr>
+                <mat-vertical-stepper [selectedIndex]="index" style="background-color: transparent;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+                    [linear]="false" #stepper>
+                    <mat-step>
+
+                        <ng-template matStepLabel>Where?</ng-template>
+
+                    </mat-step>
+
+                    <mat-step>
+
+                        <ng-template matStepLabel>When?</ng-template>
+
+                    </mat-step>
+                    <mat-step>
+
+                        <ng-template matStepLabel>How often? </ng-template>
+
+                    </mat-step>
+                  
+                </mat-vertical-stepper>
+            </tr>
+        </table>
+
+
+
+
+
+    </div>
+    <!-- <div class="or">OR</div> -->
+</div>
