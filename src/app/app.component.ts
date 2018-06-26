@@ -2,6 +2,8 @@ import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { BroadcasterService } from 'ng-broadcaster';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +15,11 @@ export class AppComponent implements OnInit {
   isDarkTheme = false;
   routeLinks: any[];
   activeLinkIndex = -1;
-
+  isMainMenuHidden = false;
   @Input() formData;
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,  private broadcaster: BroadcasterService) {
     this.routeLinks = [];
     this.routeLinks = [
       {
@@ -47,7 +49,7 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
     this.router.events.subscribe((res) => {
       this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
-  });
+   });
   }
 
 }

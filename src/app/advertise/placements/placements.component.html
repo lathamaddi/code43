@@ -1,0 +1,208 @@
+<div id="login-box">
+  <div *ngIf="!hideheader||this.selTiles.length === 0">
+      <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 15%;"> 
+          <span >Click to select specific placements</span>
+        </h2>
+        <h4 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 15%;">
+            <span>
+              Campaign metrics will update based on the selections
+            </span>
+        </h4>
+        <hr>
+  </div>
+  <div id="tilecontainer" *ngIf="selTiles && selTiles.length > 0">
+      <div *ngFor="let tile of selTiles; let idx=index" class="col-sm-3">
+          <div class="box" id="box">
+            {{tile.text}}
+              <a class="boxclose" id="boxclose" (click)="onClose($event, tile, idx)"></a>
+          </div>
+      </div>
+  </div>
+  <div class="left">
+    <div *ngIf="!reservedPlacements">
+      <div style="padding: 20px;">
+        <span style="float: left;">
+            <a>Show venues on map </a>
+        </span>
+        <span style="float: right;">
+            <mat-form-field>
+                <mat-label>Sort by:</mat-label>
+                <mat-select #fontSize value="16px">
+                  <mat-option value="0">Distance from target</mat-option>
+                  <mat-option value="1">Salary</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </span>
+        <br/>
+      </div>
+      
+        <mat-grid-list cols="2" rowHeight="280px" #gridList *ngIf="!reservedPlacements">
+            <mat-grid-tile class="grid-test-1" *ngFor="let tile of tiles; let tileidx=index;" [colspan]="tile.cols" [rowspan]="tile.rows" (click)="selectedCard($event, tile, tileidx)">
+              <mat-card class="example-card" [style.background]="tile.color">
+                <mat-card-content>
+                  <table>
+                    <tr>
+                      <td style="width:100px; height: 120px; padding-right: 30px;">
+                          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                      </td>
+                      <td style="width: 364px;">
+                          <address>
+                            Pyramid Alehouse Rest.<br>
+                            1201 1st street,
+                            Seattle, WA
+                          </address>
+                          <label>Type:</label> &nbsp; Bar <br>
+                          <label>Audiance Highlights: </label> &nbsp; Adults, Men
+                      </td>
+                    </tr>
+                    <tr style="background-color: lightgrey;">
+                      <td style="width: 120px;">
+                        Avg Unique Viewers / Mo.
+                      </td>
+                      <td style="width: 120px;">
+                          Rotation Frequency
+                      </td>
+                      <td style="width: 120px;"> 
+                          <label>Rate</label> for selected criteria
+                      </td>
+                    </tr>
+                    <tr style="height: 50px; text-align: center;">
+                        <td style="border: 1px solid black;">
+                          15, 000
+                        </td>
+                        <td style="border: 1px solid black;">
+                            20 times/hr
+                        </td>
+                        <td style="border: 1px solid black;">
+                            $800
+                        </td>
+                      </tr>                    
+                  </table>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+            <div class="paginator mat-elevation-z4">
+                <mat-paginator [length]="10" [pageSize]="5" [pageSizeOptions]="[12, 24]">
+                    
+                </mat-paginator>
+            </div>
+	  
+    </div>
+    <div *ngIf="this.reservedPlacements && !this.paymentAuthorize" style="text-align: center;">
+        <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;"> 
+            <span>Please authorize a payment to reserve your selections</span>
+        </h2>
+        <h1 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;">
+            <span>Your selections will be held for 15 minutes. You can continue without payment, but your selections will be subject to availability when you are ready to reserve</span>
+        </h1>
+        <div style="background-color: lightblue; padding: 20px; font-size: 20px;">
+          Your placements are being held for: 13:24
+          <br />          
+        </div>
+        <div  style="padding: 20px; font-size: 30px; text-align: center; color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;">
+            Amound Due: $ 2,500
+        </div>
+        <div style="padding: 20px; font-size: 20px; text-align: center;">
+            <button mat-raised-button color="primary" (click)="authorizePayment($event)">AUTHORIZE PAYMENT</button>
+        </div>
+        <div style="padding: 20px;text-align: center;">
+            <a>Continue without payment</a>
+        </div>        
+    </div>
+
+    <div *ngIf="this.reservedPlacements && this.paymentAuthorize" style="text-align: center;">
+        <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;"> 
+            <span>Your placements are reserved!</span>
+        </h2>
+        <h1 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;">
+            <span>You are now are ready to add your advertisement creative to this campaign.</span>
+        </h1>
+        <div style="background-color: lightblue; padding: 20px; font-size: 20px; color: green;">
+          Your payment has been approved.
+          <br />          
+        </div>
+        <div style="padding: 20px; font-size: 20px; text-align: center;">
+            <button mat-raised-button color="primary" (click)="onAdCreative($event)">SELECT AD CREATIVE</button>
+        </div>
+        <div style="padding: 20px;text-align: center;">
+            <label>Not ready to select your ad creative?</label> <br>
+            <span>No problem!, Just add it later from your Dashboard.</span><br>
+            <span>Note: Ad creative must be added no later than 48 hours prior to your campaign start date.</span>
+        </div>        
+    </div>
+
+  </div>
+  <div class="right">
+      <table>
+        <tr style="align-content: center;">
+            <h3 style="text-align: center;">Summary & metrics</h3>
+        </tr>
+        <tr>
+          <span style="font-size: 40px;">TOTAL SPEND: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">$0</span></span>
+        </tr>
+        <tr>
+            &nbsp;
+          </tr>
+        <tr>
+          <span style="font-size: 25px; font-weight: normal;">EXPOSURE</span>
+        </tr>
+        <tr style="margin-left: 20px;">
+          <span style="font-size: 20px; margin-left: 20px;">#Venues: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">0</span></span>
+        </tr>  
+        <tr style="margin-left: 20px;">
+            <span style="font-size: 20px; margin-left: 20px;">Est. # Unique Viewers: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">0</span></span>
+        </tr>    
+        <tr style="margin-left: 20px;">
+            <span style="font-size: 20px; margin-left: 20px;">Est. # Impressions: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">0</span></span>
+        </tr>    
+        <tr>
+          &nbsp;
+        </tr>
+        <tr>
+            <span style="font-size: 25px; font-weight: normal;">AD DURATION <sup>*</sup></span>
+          </tr>
+          <tr style="margin-left: 20px;">
+            <span style="font-size: 20px; margin-left: 20px;">Ad rotation frequency: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">40 times/hr</span></span>
+          </tr>  
+          <tr style="margin-left: 20px;">
+              <span style="font-size: 20px; margin-left: 20px;">Share of voice: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">20%</span></span>
+          </tr>    
+          <tr style="margin-left: 20px;">
+              <span style="font-size: 20px; margin-left: 20px;">Ad length: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">15 sec</span></span>
+          </tr>        
+          <tr>
+              &nbsp;
+            </tr>  
+          <tr>
+              <span style="font-size: 25px; font-weight: normal;">TIMING <sup>*</sup></span>
+            </tr>
+            <tr style="margin-left: 20px;">
+              <span style="font-size: 20px; margin-left: 20px;">Start Date: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">May 20, 2018</span></span>
+            </tr>  
+            <tr style="margin-left: 20px;">
+                <span style="font-size: 20px; margin-left: 20px;">Campaign Length: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">4 Weeks</span></span>
+            </tr>      
+            <tr>
+                &nbsp;
+              </tr>  
+            <tr style="text-align: center;">
+                <button mat-raised-button color="primary" (click)="reservePlacements($event)">RESERVE PLACEMENTS</button>
+            </tr> 
+            <tr>
+              &nbsp;
+            </tr>   
+            <tr style="text-align: center;">
+              <a>Download campaign selections</a>
+            </tr>   
+            <tr>
+                &nbsp;
+              </tr> 
+            <tr style="text-align: center;">
+                <a>Edit your criteria</a>
+            </tr>
+      </table>
+      </div>
+      <!-- <div class="or">OR</div> -->
+      </div>
+      <router-outlet></router-outlet>  

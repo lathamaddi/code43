@@ -25,7 +25,7 @@
       <i class="material-icons">menu</i>
     </button>
     <span class="title">Sport TV</span>
-    <nav mat-tab-nav-bar style="float: right;margin-left: 780px;" >
+    <nav mat-tab-nav-bar style="float: right;margin-left: 780px;" *ngIf="!isMainMenuHidden">
       <a mat-tab-link
          *ngFor="let routeLink of routeLinks; let i = index;"
          [routerLink]="routeLink.link"

@@ -21,7 +21,7 @@ const ROUTES: Routes = [
     {
         path: 'advertise',
         loadChildren: './advertise/advertise.module#AdvertiseModule',
-        data: { title: 'Advertise', preload: true }
+        data: { title: 'Advertise', preload: false }
     },
     {
         path: 'agencies',

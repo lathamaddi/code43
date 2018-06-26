@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BroadcasterService } from 'ng-broadcaster';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material';
 import { MatCommonModule } from '@angular/material';
@@ -69,7 +69,7 @@ import { MainComponent } from './main/main.component';
     MatTabsModule,
     MatListModule
   ],
-  providers: [],
+  providers: [BroadcasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
