@@ -32,12 +32,12 @@ body{
 .login-box-header{
 	width: auto;
     height: 20%;
-    background-color: #00269a;
+   
     text-align: center;
     vertical-align: middle;
     font-size: 3em;
     padding: 2%;
-    color: #fff;
+    color: #00269a;
 }
  
 .login-box-body{
@@ -56,18 +56,6 @@ body{
 	padding-bottom: 2%;
 }
  
-.login-button{
-	width: 20%;
-	height: 50px;;
-	align-content: center;
-	vertical-align: middle;
-    background-color: #6182ff;
-    font-size: 20px;
-	color: #fff !important;
-	margin-left: 80% !important;
-
-}
-
 
 .mat-grid-tile
 {

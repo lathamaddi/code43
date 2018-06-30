@@ -83,25 +83,8 @@ body {
   font-weight: 300;
 }
 
-#login-box {
-  position: relative;
-  margin: 0 auto;
-  width: 80%;
-  height: 600px;
-  background: #FFF;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
 
-.left {
-  position: absolute;
-  top: 5;
-  left: 25%;
-  box-sizing: border-box;
-  padding: 50px;
-  width: 600px;
-  height: 600px;
-}
+
 
 h1 {
   margin: 0 0 20px 0;
@@ -176,30 +159,7 @@ input[type="submit"]:active {
 }
 
 
-.right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px;
-  width: 350px;
-  height: 600px;
-  background: url('https://goo.gl/YbktSj');
-  background-size: cover;
-  background-position: center;
-  border-radius: 0 2px 2px 0;
-  background-color: #e7effc;
-}
 
-.right .loginwith {
-  display: block;
-  margin-bottom: 40px;
-  font-size: 28px;
-  color: #FFF;
-  text-align: center;
-
-}
 
 button.social-signin {
   margin-bottom: 20px;
@@ -252,25 +212,8 @@ body {
   font-weight: 300;
 }
 
-#login-box {
-  position: relative;
-  margin: 0 auto;
-  width: 80%;
-  height: 900px;
-  background: #FFF;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
 
-.left {
-  position: absolute;
-  top: 5;
-  left: 15%;
-  box-sizing: border-box;
-  padding: 50px;
-  width: 600px;
-  height: 900px;
-}
+
 
 .submitleft {
   position: absolute;
@@ -354,30 +297,9 @@ input[type="submit"]:active {
 }
 
 
-.right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px;
-  width: 350px;
-  height: 900px;
-  background: url('https://goo.gl/YbktSj');
-  background-size: cover;
-  background-position: center;
-  border-radius: 0 2px 2px 0;
-  background-color: #e7effc;
-}
 
-.right .loginwith {
-  display: block;
-  margin-bottom: 40px;
-  font-size: 28px;
-  color: #FFF;
-  text-align: center;
 
-}
+
 
 button.social-signin {
   margin-bottom: 20px;
@@ -429,25 +351,9 @@ body {
   font-weight: 300;
 }
 
-#login-box {
-  position: relative;
-  margin: 0 auto;
-  width: 80%;
-  height: 900px;
-  background: #FFF;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
 
-.left {
-  position: absolute;
-  top: 5;
-  left: 15%;
-  box-sizing: border-box;
-  padding: 50px;
-  width: 600px;
-  height: 900px;
-}
+
+
 
 h1 {
   margin: 0 0 20px 0;
@@ -527,15 +433,21 @@ input[type="submit"]:active {
   top: 0;
   right: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 40px;
-  width: 350px;
-  height: 900px;
-  background: url('https://goo.gl/YbktSj');
-  background-size: cover;
+  width: auto;
+  max-width: 350px;
+  height: auto;
+  background-size: contain;
   background-position: center;
-  border-radius: 0 2px 2px 0;
-  background-color: #e7effc;
+  border-radius: 2px 2px 2px 0;
+  background-color: lightskyblue;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  border-width: 5px;
+  border-radius: 0%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+  line-height: 40px;
+  text-align: center;
 }
 
 .right .loginwith {
@@ -600,22 +512,29 @@ body {
 #login-box {
   position: relative;
   margin: 0 auto;
-  width: 85%;
-  height: 880px;
+  width: 98%;
+  height: 500px;
+  max-height: 50%;
+  scroll-behavior: auto;
   background: #FFF;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  right: 10%;
 }
-
+h1
+{
+  color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 40px !important;
+ font-weight: 600;
+}
 .left {
-  position: absolute;
-  top: 5;
-  left: 1%;
+  position: relative;
   box-sizing: border-box;
-  padding: 50px;
-  width: 880px;
+  width: auto;
   height: 700px;
-  overflow: scroll;
+  overflow: auto;
+  align-content: center;
+  vertical-align: middle;
+  padding: 0 0 0 30%;
+  vertical-align: middle;
+  
 }
 
 h1 {
@@ -690,30 +609,9 @@ input[type="submit"]:active {
 }
 
 
-.right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px;
-  width: auto;
-  height: 880px;
-  background: url('https://goo.gl/YbktSj');
-  background-size: cover;
-  background-position: center;
-  border-radius: 0 2px 2px 0;
-  background-color: #e7effc;
-}
 
-.right .loginwith {
-  display: block;
-  margin-bottom: 40px;
-  font-size: 28px;
-  color: #FFF;
-  text-align: center;
 
-}
+
 
 button.social-signin {
   margin-bottom: 20px;
@@ -977,5 +875,20 @@ mat-chip {
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+
+
+button {
+  width: auto;
+	align-content: center;
+	vertical-align: middle;
+    background-color: #1156cc;
+    font-size: 15px;
+	color: #fff !important;
+  border-radius: 8px;
+}
+.mat-form-field-underline ng-tns-c10-2 ng-star-inserted
+{
+  color:white;
 }
 /* Mat-Tab Styles */

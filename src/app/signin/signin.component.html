@@ -9,9 +9,7 @@
 
   <mat-grid-tile class='login-element'>
     <div class="login-container">
-      <div style="justify-content: flex-end;align-content: flex-end;padding-left: 85%;">
-      <a [routerLink]="['/signup']" >Sign Up</a>
-      </div>
+      
       <div class="login-box-header">
         <mat-icon style="font-size:30px;">account_circle</mat-icon>  SPOT43
       </div>
@@ -25,9 +23,9 @@
           </mat-grid-tile>
           <mat-grid-tile [colspan]="7">
 
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="USER NAME" [(ngModel)]="userName">
-            </mat-form-field>
+           
+              <input matInput  type="text" placeholder="USER NAME" [(ngModel)]="userName">
+           
 
           </mat-grid-tile>
         </mat-grid-list>
@@ -37,17 +35,19 @@
             <mat-icon>remove_red_eye</mat-icon>
           </mat-grid-tile>
           <mat-grid-tile [colspan]="7">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="PASSWORD" type="password" [(ngModel)]="passWord">
-            </mat-form-field>
+          
+                <input matInput placeholder="PASSWORD" type="password" [(ngModel)]="passWord">
+         
 
           </mat-grid-tile>
         </mat-grid-list>
-        <br/>
-        <button md-raised-button class="login-button" (click)="login()">
+      
+        <button md-raised-button style="margin-left: 80% !important;"  (click)="login()">
         Login
         </button>
-        
+        <br/>
+        <br/>
+        <a style="margin-left:50%;font-size: 18px;" [routerLink]="['/signup']" >Sign Up</a>
       
       </div>
  
