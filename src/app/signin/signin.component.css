@@ -24,9 +24,9 @@ body{
   	height:400px;
   	padding: 0% !important;
 	background-color: #fff;
-	-webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
-	-moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
-	box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+	-webkit-box-shadow: 10px 4px 58px -20px rgba(0,0,0,1);
+	-moz-box-shadow: 10px 4px 58px -20px rgba(0,0,0,1);
+	box-shadow: 20px 5px 5px #6182ff;;
 }
  
 .login-box-header{
@@ -57,9 +57,19 @@ body{
 }
  
 .login-button{
-	width: 100%;
-	padding:1.5% !important;	
-    background-color: #1156cc;
-    font-size: 1.5em;
-    color: #fff !important;
+	width: 20%;
+	height: 50px;;
+	align-content: center;
+	vertical-align: middle;
+    background-color: #6182ff;
+    font-size: 20px;
+	color: #fff !important;
+	margin-left: 80% !important;
+
+}
+
+
+.mat-grid-tile
+{
+	border-color:white !important;
 }

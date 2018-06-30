@@ -21,11 +21,9 @@
     </mat-toolbar>
   </mat-sidenav>
   <mat-toolbar>
-    <button mat-button class="app-menu-button" (click)="sidenav.toggle()">
-      <i class="material-icons">menu</i>
-    </button>
-    <span class="title">Sport TV</span>
-    <nav mat-tab-nav-bar style="float: right;margin-left: 780px;" *ngIf="!isMainMenuHidden">
+   
+    <span style="font-size: 30px !important;" >SPOT 43</span>
+    <nav mat-tab-nav-bar style="float: right;position: absolute; right: 0;" layout-align="end center" *ngIf="!isMainMenuHidden">
       <a mat-tab-link
          *ngFor="let routeLink of routeLinks; let i = index;"
          [routerLink]="routeLink.link"

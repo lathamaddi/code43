@@ -4,17 +4,16 @@
 -->
 
 
-<mat-grid-list cols="3">
+<mat-grid-list cols="3" >
   <mat-grid-tile></mat-grid-tile>
 
- 
   <mat-grid-tile class='login-element'>
     <div class="login-container">
       <div style="justify-content: flex-end;align-content: flex-end;padding-left: 85%;">
       <a [routerLink]="['/signup']" >Sign Up</a>
       </div>
       <div class="login-box-header">
-        Spottv
+        <mat-icon style="font-size:30px;">account_circle</mat-icon>  SPOT43
       </div>
      
       <div class="login-box-body">
@@ -44,12 +43,11 @@
 
           </mat-grid-tile>
         </mat-grid-list>
-       
-
-        <button md-raised-button class="login-button" (click)="login()">
-          <mat-icon>input</mat-icon> Login
-        </button>
         <br/>
+        <button md-raised-button class="login-button" (click)="login()">
+        Login
+        </button>
+        
       
       </div>
  
