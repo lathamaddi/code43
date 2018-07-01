@@ -22,22 +22,22 @@ body{
 .login-container{
 	width: 100%;
   	height:400px;
-  	padding: 0% !important;
+  	padding: % !important;
 	background-color: #fff;
 	-webkit-box-shadow: 10px 4px 58px -20px rgba(0,0,0,1);
 	-moz-box-shadow: 10px 4px 58px -20px rgba(0,0,0,1);
-	box-shadow: 20px 5px 5px #6182ff;;
+	box-shadow: 20px 5px 5px silver;
 }
  
 .login-box-header{
 	width: auto;
     height: 20%;
-   
+    background-color: #00269a;
     text-align: center;
     vertical-align: middle;
     font-size: 3em;
     padding: 2%;
-    color: #00269a;
+    color:white;
 }
  
 .login-box-body{

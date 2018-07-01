@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
           link: './hosts',
           index: 0
       }, {
-          label: 'Advertise',
+          label: 'Advertisers',
           link: './advertise',
           index: 1
       }, {
