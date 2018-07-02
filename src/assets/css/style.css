@@ -897,6 +897,26 @@ mat-chip {
 input::placeholder {
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.mat-tab-nav-bar
+{
+  background-color: #002e9a !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-weight: 800;
+  font-size: 18px;
+}
+..mat-tab-link
+{
+  color: white;
+  font-weight: 500 ;
+  font-size: 20px;
+}
+.mat-tab-label, .mat-tab-link
+{
+  color: white;
+  font-weight: 500 ;
+  font-size: 20px;
+}
 button {
   width: auto;
 	align-content: center;

@@ -1,0 +1,62 @@
+.mat-grid-list
+{
+    position: static;
+}
+
+
+#login-box {
+    position: relative !important;
+    margin: 1 auto;
+    width: 100% !important;
+    height: 50% !important;
+    max-height: 80% !important;
+    scroll-behavior: auto !important;
+    background: #FFF !important;
+    right: 1% !important;
+  }
+
+.right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 0px !important;
+    width: auto;
+    max-width: 600px !important;
+    height: 50% !important;
+    max-height: 80% !important;
+    background-size: contain;
+    background-position: center;
+    border-radius: 2px 2px 2px 0;
+    background-color: lightskyblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px !important;
+    border-width: 5px !important;
+    border-radius: 0%;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    line-height: 40px !important;
+    text-align: center !important;
+  }
+  
+  .right .loginwith {
+    display: block;
+    margin-bottom: 40px;
+    font-size: 28px;
+    color: #FFF;
+    text-align: center;
+  
+  }
+
+  .left {
+    position: relative  !important;
+    box-sizing: border-box;
+    margin: 0 0 0 10% !important;
+    width: 60%   !important;
+    height: 50% !important;
+    max-height: 80% !important;
+    overflow: auto !important;
+    align-content: center !important;
+    vertical-align: middle;
+    vertical-align: middle;
+    
+  }
