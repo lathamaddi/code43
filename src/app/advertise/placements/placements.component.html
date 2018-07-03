@@ -20,26 +20,26 @@
           </div>
       </div>
   </div>
-  <div class="left">
-    <div *ngIf="!reservedPlacements">
-      <div >
-        <span style="float: left;">
-            <a (click)="onShowVenueMap($event)">Show venues on map </a>
-        </span>
-        <span style="float: right;">
-            <mat-form-field>
-                <mat-label>Sort by:</mat-label>
-                <mat-select #fontSize value="16px">
-                  <mat-option value="0">Distance from target</mat-option>
-                  <mat-option value="1">Salary</mat-option>
-                </mat-select>
-              </mat-form-field>
-        </span>
-        <br/>
-      </div>
 
-      <div id="googleMap" style="width:100%;height:400px;display:none;"></div>
-      
+  <div *ngIf="!reservedPlacements">
+    <div style="margin: 20px;" >
+      <span style="float: left; margin-left: 130px;">
+          <a (click)="onShowVenueMap($event)">Show venues on map </a>
+      </span>
+      <span style="float: right;">
+          <mat-form-field>
+              <mat-label>Sort by:</mat-label>
+              <mat-select #fontSize value="16px">
+                <mat-option value="0">Distance from target</mat-option>
+                <mat-option value="1">Salary</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </span>
+      <br/>
+    </div>
+    <div id="googleMap" style="margin-left: 130px;width:60%;height:400px;display:none;"></div>
+    <br />
+    <div class="left">
         <mat-grid-list cols="2" rowHeight="280px" #gridList *ngIf="!reservedPlacements">
             <mat-grid-tile class="grid-test-1" *ngFor="let tile of tiles; let tileidx=index;" [colspan]="tile.cols" [rowspan]="tile.rows" (click)="selectedCard($event, tile, tileidx)">
               <mat-card class="example-card" [style.background]="tile.color">

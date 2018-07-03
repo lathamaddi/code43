@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatGridList, MatGridTile } from '@angular/material';
 import { Router } from '@angular/router';
+declare var google;
 
 @Component({
   selector: 'app-placements',
