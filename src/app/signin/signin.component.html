@@ -4,57 +4,64 @@
 -->
 
 
-<mat-grid-list cols="3" >
+<mat-grid-list cols="3">
   <mat-grid-tile></mat-grid-tile>
 
   <mat-grid-tile class='login-element'>
     <div class="login-container">
-      
-      <div class="login-box-header">
-        <mat-icon style="font-size:30px;">account_circle</mat-icon>  SPOT43
+
+      <div class="login-box-header" >
+        <mat-icon style="font-size:30px;">account_circle</mat-icon> SPOT43
       </div>
-     
+
       <div class="login-box-body">
 
-        
+
         <mat-grid-list cols="9" rowHeight="75px">
           <mat-grid-tile [rowspan]="1" class="login-icon">
             <mat-icon>lock</mat-icon>
           </mat-grid-tile>
           <mat-grid-tile [colspan]="7">
 
-           
-              <input matInput  type="text" placeholder="USER NAME" [(ngModel)]="userName">
-           
+
+            <input matInput type="text" placeholder="USER NAME" [(ngModel)]="userName">
+
 
           </mat-grid-tile>
         </mat-grid-list>
-        
+
         <mat-grid-list cols="9" rowHeight="100px">
           <mat-grid-tile [rowspan]="1" class="login-icon">
             <mat-icon>remove_red_eye</mat-icon>
           </mat-grid-tile>
           <mat-grid-tile [colspan]="7">
-          
-                <input matInput placeholder="PASSWORD" type="password" [(ngModel)]="passWord">
-         
+
+            <input matInput placeholder="PASSWORD" type="password" [(ngModel)]="passWord">
+
 
           </mat-grid-tile>
         </mat-grid-list>
-      
-        <button md-raised-button style="margin-left: 80% !important;"  (click)="login()">
-        Login
-        </button>
-        <br/>
-        <br/>
-        <a style="margin-left:50%;font-size: 18px;" [routerLink]="['/signup']" >Sign Up</a>
-      
+
+        <table style="margin-left: 40%;">
+          <tr>
+            <td>
+              <button md-raised-button (click)="login()">
+                Login
+              </button>
+            </td>
+            <td>
+              &nbsp;
+              <a style="font-size: 15px;" [routerLink]="['/signup']">Sign Up</a>
+            </td>
+          </tr>
+        </table>
+
       </div>
- 
-       
+
+
     </div>
   </mat-grid-tile>
-  
+
   <mat-grid-tile></mat-grid-tile>
 
 </mat-grid-list>

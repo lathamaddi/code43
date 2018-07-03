@@ -1,12 +1,11 @@
-<a [routerLink]="['/signin']" style="padding-left: 70%;margin-top: 50px;">Already have an account?</a>
 <div id="login-box">
 
-
+        <h1 style="margin-left: 30%;">
+                Tell us about your business</h1>
     <div class="left">
 
         <table *ngIf="isUpdateProfile">
-            <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                Tell us about your business</h2>
+          
             <tr>
                 <input type="text" name="username" placeholder="Enter your business name" />
             </tr>
@@ -40,12 +39,14 @@
 
             </tr>
             <tr>
-                <input type="submit" name="signup_submit" value="CREATE PROFILE" (click)="signup()" />
+                <button style="margin-left: 50px;" md-raised-button (click)="signup()">
+                    CREATE PROFILE
+                </button>
+
             </tr>
         </table>
         <table *ngIf="isAddAgency">
-            <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                Tell us about your agency</h2>
+            
             <tr>
                 <input type="text" name="username" placeholder="enter your agency name" />
             </tr>
@@ -75,24 +76,28 @@
                 <input type="text" name="email" placeholder="(123)123-1234" />
             </tr>
             <tr>
-                <input type="submit" name="signup_submit" value="CREATE PROFILE" (click)="addAgency()" />
+                    <button style="margin-left: 50px;" md-raised-button (click)="addAgency()">
+                            CREATE PROFILE
+                        </button>
+               
             </tr>
         </table>
         <table *ngIf="isAddClient">
-            <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                Thank you for signing up!</h2>
+          
             <tr>
                 <h4>Now let’s add a new client
                 </h4>
             </tr>
 
             <tr>
-                <input type="submit" name="signup_submit" value="ADD NEW CLIENT" (click)="addClient()" />
+                    <button style="margin-left: 50px;" md-raised-button (click)="addClient()">
+                            CREATE PROFILE
+                        </button>
+            
             </tr>
         </table>
         <table *ngIf="createClient">
-            <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                Let’s add a new client</h2>
+           
             <tr>
                 <input type="text" name="username" placeholder="enter your business name" />
             </tr>
@@ -112,6 +117,7 @@
                             </mat-select>
                         </td>
                         <td>
+
                             <input style="width:80px;" type="text" name="LASTNAME" placeholder="Zip" />
                         </td>
                     </tr>
@@ -126,20 +132,22 @@
 
             </tr>
             <tr>
-                <input type="submit" name="signup_submit" value="CREATE PROFILE" (click)="addCampign()" />
+                    <button style="margin-left: 50px;" md-raised-button (click)="addCampign()">
+                            CREATE PROFILE
+                        </button>
+            
             </tr>
         </table>
         <table *ngIf="createCampign">
-                <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                        Thank you for signing up!</h2>
-                    <tr>
-                        <h4>Now let’s get your first ad campaign created
-                        </h4>
-                    </tr>
-        
-                    <tr>
-                        <input type="submit" name="signup_submit" value="CREATE CAMPAIGN" (click)="crCampign()" />
-                    </tr>
+           
+           
+
+            <tr>
+                    <button style="margin-left: 50px;" md-raised-button (click)="crCampign()">
+                            CREATE CAMPAIGN
+                        </button>
+               
+            </tr>
         </table>
     </div>
 

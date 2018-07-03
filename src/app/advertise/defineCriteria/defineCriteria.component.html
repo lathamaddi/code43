@@ -1,9 +1,12 @@
+<br/>
+
+
 <div id="login-box">
-  <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 15%;"> 
+  <h1 style="padding: 1% 0 0 25%;"> 
     <span *ngIf="stepper.selectedIndex === 0">Where would you like to place your ads?</span>
     <span *ngIf="stepper.selectedIndex === 1">When do you want to run your campaign?</span>
     <span *ngIf="stepper.selectedIndex === 2">How often would you like your ads to run?</span>
-  </h2>
+  </h1>
   <div class="left">
     <div *ngIf="stepper.selectedIndex === 0">
         <mat-form-field style="width: 'auto'">
@@ -67,7 +70,7 @@
     </div>
 </div>
 
-<div class="right">
+<div class="right" style="font-size: 10px !important;">
 <table>
   <tr style="align-content: center;">
       Define your placement criteria
