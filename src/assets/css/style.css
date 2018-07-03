@@ -432,26 +432,25 @@ input[type="submit"]:active {
   overflow:  hidden !important;
 }
 
+.mat-step-label
+{
+  font-size: 18px !important;
+}
 .right {
   position: absolute;
   top: 0;
   right: 0;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 5% 0 0 2%;
   width: auto;
   max-width: 350px;
-  height: auto;
+  height: 100%;
   background-size: contain;
   background-position: center;
   border-radius: 2px 2px 2px 0;
-  background-color: lightskyblue;
+  background-color: #e7effc;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 20px;
-  border-width: 5px;
-  border-radius: 0%;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
-  line-height: 40px;
-  text-align: center;
+  font-size: 24px !important;
 }
 
 .right .loginwith {
@@ -511,17 +510,16 @@ body {
   color: #222;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  overflow: hidden;
 }
 
 #login-box {
   position: relative;
-  margin: 10 auto;
-  width: 98%;
-  height: 500px;
-  max-height: 50%;
+  width: 100%;
+  height: auto;
   scroll-behavior: auto;
   background: #FFF;
-  right: 10%;
+  overflow: hidden;
 }
 h1
 {
@@ -536,7 +534,7 @@ h1
   overflow: auto;
   align-content: center;
   vertical-align: middle;
-  padding: 0 0 0 38%;
+  padding: 0 0 0 35%;
   vertical-align: middle;
   
 }
