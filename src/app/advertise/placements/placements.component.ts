@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatGridList, MatGridTile } from '@angular/material';
 import { Router } from '@angular/router';
+declare var google;
 
 @Component({
   selector: 'app-placements',
@@ -16,6 +17,11 @@ export class PlacementsComponent implements OnInit {
   hideheader = false;
   reservedPlacements = false;
   paymentAuthorize = false;
+  showVenuesOnMap = false;
+  geocoder: any;
+  address: any[] = [];
+  map: google.maps.Map;
+
   public tiles = [
     { text: 'Pyramid Alehouse. 1', cols: 1, rows: 1, color: 'white', dataindx: 0 },
     { text: 'Pyramid Alehouse. 2', cols: 1, rows: 1, color: 'white', dataindx: 1 },
@@ -29,7 +35,43 @@ export class PlacementsComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  showPlacementsMap() {
+    document.getElementById("googleMap").style.display = this.showVenuesOnMap ? 'block' : 'none';
+    this.geocoder = new google.maps.Geocoder();
+    let latlng = new google.maps.LatLng(47.606, 122.332);
+    let mapOptions = {
+      zoom: 8,
+      center: latlng
+    }
+    let map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+    this.address.push('Pyramid Alehouse Rest. 1201 1st street, Seattle, WA');
+    this.address.forEach((addr, indx) => {
+      this.geocoder.geocode( { 'address': addr}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          this.marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+              title: results[0].formatted_address
+          });
+          this.marker.addListener('click', (evt: any) => {
+            window.alert('Marker\'s Title: ' + evt.Ha.currentTarget.title);
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    });
+
+    
+  }
+
   ngOnInit() {
+  }
+
+  onShowVenueMap(evt: any) {
+    this.showVenuesOnMap = !this.showVenuesOnMap;
+    this.showPlacementsMap();
   }
 
   onAdCreative(evt: any) {
