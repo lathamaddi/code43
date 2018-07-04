@@ -4,6 +4,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BroadcasterService } from 'ng-broadcaster';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -15,24 +16,27 @@ export class AppComponent implements OnInit {
   isDarkTheme = false;
   routeLinks: any[];
   activeLinkIndex = -1;
+  selected = 'option1';
   isMainMenuHidden = false;
+  isSignIn=false;
   @Input() formData;
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private router: Router,  private broadcaster: BroadcasterService) {
+  constructor(private router: Router,  private broadcaster: BroadcasterService,public loginService:LoginService) {
+   
     this.routeLinks = [];
     this.routeLinks = [
       {
           label: 'Hosts',
-          link: './hosts',
+          link: './signup',
           index: 0
       }, {
           label: 'Advertisers',
-          link: './advertise',
+          link: './signup',
           index: 1
       }, {
           label: 'Agencies',
-          link: './agencies',
+          link: './signup',
           index: 2
       }, {
           label: 'Sign in',
@@ -41,7 +45,16 @@ export class AppComponent implements OnInit {
       }
     ];
   }
-
+  changeSelect(e)
+  {
+    if(e === 'option2')
+    {
+      this.router.navigate(['main']);
+      this.isMainMenuHidden=false;
+      this.loginService.isSignIn=false;
+    }
+ 
+  }
   someMethod() {
     this.trigger.openMenu();
   }

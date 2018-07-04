@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '../../../node_modules/@angular/material';
 import { Router } from '../../../node_modules/@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-signin',
@@ -9,7 +10,7 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private snackBar:MatSnackBar,private route:Router) { }
+  constructor(private snackBar:MatSnackBar,private route:Router,private loginService:LoginService) { }
    userName:string;
    passWord:string;
    
@@ -20,6 +21,7 @@ export class SigninComponent implements OnInit {
   {
     if(this.userName=="user"&&this.passWord=="user")
     {
+      this.loginService.isSignIn =true;
       this.route.navigate(['hosts']); 
     }
     else
