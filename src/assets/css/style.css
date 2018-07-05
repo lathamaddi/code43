@@ -441,7 +441,8 @@ input[type="submit"]:active {
   top: 0;
   right: 0;
   box-sizing: border-box;
-  padding: 5% 0 0 2%;
+  padding: 8% 0 0 2%;
+  min-width: 350px;
   width: auto;
   max-width: 350px;
   height: 100%;
@@ -450,7 +451,7 @@ input[type="submit"]:active {
   border-radius: 2px 2px 2px 0;
   background-color: #e7effc;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 24px !important;
+  font-size: 22px !important;
 }
 
 .right .loginwith {
@@ -523,18 +524,18 @@ body {
 }
 h1
 {
-  color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 40px !important;
- font-weight: 600;
+  color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 50px !important;
+ font-weight: 1000;
 }
 .left {
   position: relative;
   box-sizing: border-box;
   width: auto;
-  height: 700px;
+  height: 1000px;
   overflow: auto;
   align-content: center;
   vertical-align: middle;
-  padding: 0 0 0 35%;
+  padding: 1% 0 0 35%;
   vertical-align: middle;
   
 }
@@ -559,8 +560,8 @@ input[type="password"] {
   box-sizing: border-box;
   margin-bottom: 20px;
   padding: 4px;
-  width: 220px;
-  height: 32px;
+  width: 300px;
+  height:25px;
   border: none;
   border-bottom: 1px solid #AAA;
   font-family: 'Roboto', sans-serif;
@@ -718,7 +719,7 @@ a.boxclose{
 /* Mat-Tab Styles */
 .mat-tab-header
 {
-    background-color:#002e9a !important;
+    background-color:#1156cc !important;
     color: white !important;
     
 }
@@ -831,7 +832,7 @@ mat-sidenav-container.m2app-dark {
 
 .example-h2 {
   margin: 10px;
-  color: blue;
+  color: #1156cc;
   text-align: center;
   text-decoration-color: blue;
   font-weight: bold;
@@ -841,7 +842,7 @@ mat-sidenav-container.m2app-dark {
 
 .example-h4 {
   text-align: center;
-  color: blue;
+  color: #1156cc;
   font-weight: normal;
   font-size: 2em;
   vertical-align: middle;
@@ -897,7 +898,7 @@ input::placeholder {
 }
 .mat-tab-nav-bar
 {
-  background-color: #002e9a !important;
+  background-color: #1156cc !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
   font-weight: 800;
