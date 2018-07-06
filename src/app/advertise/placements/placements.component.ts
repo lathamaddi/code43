@@ -36,11 +36,7 @@ export class PlacementsComponent implements OnInit {
     { text: 'Pyramid Alehouse. 1', cols: 1, rows: 1, color: 'white', dataindx: 0 },
     { text: 'Pyramid Alehouse. 2', cols: 1, rows: 1, color: 'white', dataindx: 1 },
     { text: 'Pyramid Alehouse. 3', cols: 1, rows: 1, color: 'white', dataindx: 2 },
-    { text: 'Pyramid Alehouse. 4', cols: 1, rows: 1, color: 'white', dataindx: 3 },
-    { text: 'Pyramid Alehouse. 5', cols: 1, rows: 1, color: 'white', dataindx: 4 },
-    { text: 'Pyramid Alehouse. 6', cols: 1, rows: 1, color: 'white', dataindx: 5 },
-    { text: 'Pyramid Alehouse. 7', cols: 1, rows: 1, color: 'white', dataindx: 6 },
-    { text: 'Pyramid Alehouse. 8', cols: 1, rows: 1, color: 'white', dataindx: 7 },
+    
   ];
 
   constructor(private router: Router) { }

@@ -1,15 +1,11 @@
 
-<br/>
+
 <div id="login-box">
   <div *ngIf="!hideheader||this.selTiles.length === 0">
-      <h1 style="padding: 1% 0 0 15%;"> 
+      <h1 style="padding: 0% 0 0 15%;"> 
           <span >Click to select specific placements</span>
         </h1>
-        <h4 style="color:#1156cc;padding: 1% 0 0 15%;">
-            <span>
-              Campaign metrics will update based on the selections
-            </span>
-        </h4>
+        
         <hr>
   </div>
   <div id="tilecontainer" *ngIf="selTiles && selTiles.length > 0">
@@ -21,11 +17,9 @@
       </div>
   </div>
 
-  <div *ngIf="!reservedPlacements">
-    <div style="margin: 20px;" >
-      <span style="float: left; margin-left: 130px;">
-          <a (click)="onShowVenueMap($event)">Show venues on map </a>
-      </span>
+  <div >
+    <div  >
+     
       <span style="float: right;">
           <mat-form-field>
               <mat-label>Sort by:</mat-label>
@@ -37,10 +31,61 @@
       </span>
       <br/>
     </div>
-    <div id="googleMap" style="margin-left: 130px;width:60%;height:400px;display:none;"></div>
+    <!-- <div id="googleMap" style="margin-left: 130px;width:60%;height:400px;display:none;"></div> -->
     <br />
     <div class="left">
-        <mat-grid-list cols="2" rowHeight="280px" #gridList *ngIf="!reservedPlacements">
+            <div *ngIf="this.reservedPlacements && !this.paymentAuthorize" style="max-width: 80%;;">
+                    <h1 > 
+                            <span style="text-align: center;">Please authorize a payment to reserve your selections</span>
+                        </h1>
+                        <h4 style=" padding: 0 0 0 32%;">
+                            <span>Your placements will be held for 15 minutes</span>
+                        </h4>
+                        <div style="background-color: lightblue; padding: 0 0 0 35%; font-size: 15px;">
+                          Your placements are being held for: 13:24
+                          <br />          
+                        </div>
+                        <br/>   <br/>
+                        <div  
+                        style="font-size: 20px; color:#1156cc;padding: 0 0 0 38%;;">
+                            Amound Due: $ 2,500
+                        </div>
+                        <div style="padding: 10px; font-size: 10px; text-align: center;">
+                            <button mat-raised-button color="primary" (click)="authorizePayment($event)">AUTHORIZE PAYMENT</button>
+                        </div>
+                        <div style="padding: 10px;text-align: center;">
+                            <a>Continue without payment</a>
+                        </div> 
+                        <div  style="font-size: 12px;padding: 0 0 0 38%;;">
+                                Not ready to authorize a payment?<br/>
+                                You can continue later from your Dashboard, but<br/>
+                                your placements will be subject to availability when<br/>
+                                you are ready to authorize a payment.
+                        </div>
+            </div>   
+          
+            <div *ngIf="this.reservedPlacements && this.paymentAuthorize" style="max-width: 80%;;">
+                <h1 > 
+                    Your placements are reserved!
+                </h1>
+                <h3 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;">
+                    You are now are ready to add your advertisement creative to this campaign.
+                </h3>
+                <div style="background-color: lightblue; padding: 0 0 0 35%;font-size: 20px; color: green;">
+                  Your payment has been approved.
+                  <br />          
+                </div>
+                <div style="padding: 20px; font-size: 20px; text-align: center;">
+                    <button mat-raised-button color="primary" (click)="onAdCreative($event)">SELECT AD CREATIVE</button>
+                </div>
+                <div  style="font-size: 12px;padding: 0 0 0 35%;;">
+                        <label>Not ready to select your ad creative?</label> <br>
+                        <span>No problem!, Just add it later from your Dashboard.</span><br>
+                        <span>Note: Ad creative must be added no later than 48 hours prior to your campaign start date.</span>
+                </div>
+                    
+            </div>
+        <mat-grid-list cols="3" rowHeight="280px" #gridList *ngIf="!this.reservedPlacements">
             <mat-grid-tile class="grid-test-1" *ngFor="let tile of tiles; let tileidx=index;" [colspan]="tile.cols" [rowspan]="tile.rows" (click)="selectedCard($event, tile, tileidx)">
               <mat-card class="example-card" [style.background]="tile.color">
                 <mat-card-content>
@@ -93,48 +138,7 @@
             </div> -->
 	  
     </div>
-    <div *ngIf="this.reservedPlacements && !this.paymentAuthorize" style="text-align: center;">
-        <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;"> 
-            <span>Please authorize a payment to reserve your selections</span>
-        </h2>
-        <h1 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;">
-            <span>Your selections will be held for 15 minutes. You can continue without payment, but your selections will be subject to availability when you are ready to reserve</span>
-        </h1>
-        <div style="background-color: lightblue; padding: 20px; font-size: 20px;">
-          Your placements are being held for: 13:24
-          <br />          
-        </div>
-        <div  style="padding: 20px; font-size: 30px; text-align: center; color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;">
-            Amound Due: $ 2,500
-        </div>
-        <div style="padding: 20px; font-size: 20px; text-align: center;">
-            <button mat-raised-button color="primary" (click)="authorizePayment($event)">AUTHORIZE PAYMENT</button>
-        </div>
-        <div style="padding: 20px;text-align: center;">
-            <a>Continue without payment</a>
-        </div>        
-    </div>
-
-    <div *ngIf="this.reservedPlacements && this.paymentAuthorize" style="text-align: center;">
-        <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;"> 
-            <span>Your placements are reserved!</span>
-        </h2>
-        <h1 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;">
-            <span>You are now are ready to add your advertisement creative to this campaign.</span>
-        </h1>
-        <div style="background-color: lightblue; padding: 20px; font-size: 20px; color: green;">
-          Your payment has been approved.
-          <br />          
-        </div>
-        <div style="padding: 20px; font-size: 20px; text-align: center;">
-            <button mat-raised-button color="primary" (click)="onAdCreative($event)">SELECT AD CREATIVE</button>
-        </div>
-        <div style="padding: 20px;text-align: center;">
-            <label>Not ready to select your ad creative?</label> <br>
-            <span>No problem!, Just add it later from your Dashboard.</span><br>
-            <span>Note: Ad creative must be added no later than 48 hours prior to your campaign start date.</span>
-        </div>        
-    </div>
+  
 
   </div>
   <div class="right">
@@ -143,48 +147,48 @@
             <h3 style="text-align: center;">Summary & metrics</h3>
         </tr>
         <tr>
-          <span style="font-size: 40px;">TOTAL SPEND: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">$0</span></span>
+          <span style="font-size: 18px;">TOTAL SPEND: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">$0</span></span>
         </tr>
         <tr>
             &nbsp;
           </tr>
         <tr>
-          <span style="font-size: 25px; font-weight: normal;">EXPOSURE</span>
+          <span style="font-size: 18px; font-weight: normal;">EXPOSURE</span>
         </tr>
-        <tr style="margin-left: 20px;">
+        <tr style="margin-left: 18px;">
           <span style="font-size: 20px; margin-left: 20px;">#Venues: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">0</span></span>
         </tr>  
-        <tr style="margin-left: 20px;">
-            <span style="font-size: 20px; margin-left: 20px;">Est. # Unique Viewers: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">0</span></span>
+        <tr style="margin-left: 18px;">
+            <span style="font-size: 18px; margin-left: 20px;">Est. # Unique Viewers: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">0</span></span>
         </tr>    
-        <tr style="margin-left: 20px;">
-            <span style="font-size: 20px; margin-left: 20px;">Est. # Impressions: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">0</span></span>
+        <tr style="margin-left: 18px;">
+            <span style="font-size: 18px; margin-left: 20px;">Est. # Impressions: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">0</span></span>
         </tr>    
         <tr>
           &nbsp;
         </tr>
         <tr>
-            <span style="font-size: 25px; font-weight: normal;">AD DURATION <sup>*</sup></span>
+            <span style="font-size: 18px; font-weight: normal;">AD DURATION <sup>*</sup></span>
           </tr>
-          <tr style="margin-left: 20px;">
-            <span style="font-size: 20px; margin-left: 20px;">Ad rotation frequency: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">40 times/hr</span></span>
+          <tr style="margin-left: 18px;">
+            <span style="font-size: 18px; margin-left: 20px;">Ad rotation frequency: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">40 times/hr</span></span>
           </tr>  
-          <tr style="margin-left: 20px;">
-              <span style="font-size: 20px; margin-left: 20px;">Share of voice: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">20%</span></span>
+          <tr style="margin-left: 18px;">
+              <span style="font-size: 18px; margin-left: 20px;">Share of voice: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">20%</span></span>
           </tr>    
-          <tr style="margin-left: 20px;">
-              <span style="font-size: 20px; margin-left: 20px;">Ad length: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">15 sec</span></span>
+          <tr style="margin-left: 18px;">
+              <span style="font-size: 18px; margin-left: 20px;">Ad length: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">15 sec</span></span>
           </tr>        
           <tr>
               &nbsp;
             </tr>  
           <tr>
-              <span style="font-size: 25px; font-weight: normal;">TIMING <sup>*</sup></span>
+              <span style="font-size: 18px; font-weight: normal;">TIMING <sup>*</sup></span>
             </tr>
-            <tr style="margin-left: 20px;">
+            <tr style="margin-left: 18px;">
               <span style="font-size: 20px; margin-left: 20px;">Start Date: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">May 20, 2018</span></span>
             </tr>  
-            <tr style="margin-left: 20px;">
+            <tr style="margin-left: 18px;">
                 <span style="font-size: 20px; margin-left: 20px;">Campaign Length: &nbsp;&nbsp;&nbsp;&nbsp; <span style="float: right">4 Weeks</span></span>
             </tr>      
             <tr>

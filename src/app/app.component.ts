@@ -77,6 +77,17 @@ export class AppComponent implements OnInit {
     }
     
   }
+  home()
+  {
+    if(this.loginService.isSignIn)
+    {
+      this.router.navigateByUrl('advertise/dashboard');
+    }
+    else
+    {
+      this.router.navigate(['']);
+    }
+  }
   someMethod() {
     this.trigger.openMenu();
   }

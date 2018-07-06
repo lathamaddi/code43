@@ -705,7 +705,7 @@ button.social-signin.google {
 }
 
 .mat-grid-tile {
-    border: 1px solid blue;
+  box-shadow: #7F7F7F !important;
 }
 
 .example-card {
@@ -715,10 +715,11 @@ button.social-signin.google {
 
 .box{
   left:1%;
+  top:5%;
   right:1%;
   background-color:#fff;
   color:#7F7F7F;
-  padding:20px;
+  padding:10px;
   border:1px solid #ccc;
   -moz-border-radius: 20px;
   -webkit-border-radius:20px;
@@ -750,14 +751,14 @@ a.boxclose{
 }
 
 #tilecontainer {
-  top: 5px;
-  width: 910px;
-  height: 180px;
-  overflow: scroll;
+  top: 5%;
+  width: 80%;
+  height: 100px;
+  overflow: hidden;
   scroll-behavior: auto;
   position: relative;
   display: block;
-  padding: 10px;
+  padding: 5px;
 }
 
 /* Mat-Tab Styles */
@@ -923,8 +924,9 @@ mat-chip {
   flex: 1 1 auto;
 }
 
-.example-card {
-  max-width: 400px;
+.example-card {box
+  max-width: 350px;
+  width: 350px;
 }
 
 .example-header-image {
