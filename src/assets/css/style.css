@@ -435,6 +435,7 @@ input[type="submit"]:active {
 .mat-step-label
 {
   font-size: 18px !important;
+  color:primary;
 }
 .right {
   position: absolute;
@@ -539,11 +540,33 @@ h1
   vertical-align: middle;
   
 }
+.mat-raised-button
+{
+  color:white !important;
+  background-color: #1156cc !important;
+}
 .mat-vertical-content
 {
   padding: 0 !important;
 }
 .mat-step-icon-not-touched
+{
+  color: white !important;
+  background-color: white !important;
+}
+.mat-step-label-selected
+{
+  font-size: 26px !important;
+  font-weight: bolder !important;
+
+}
+.mat-step-icon .mat-icon
+{
+  color: #1156cc !important;
+  background-color: #1156cc !important;
+  
+}
+.mat-step-icon
 {
   color: #1156cc !important;
   background-color: #1156cc !important;
@@ -569,7 +592,28 @@ input[type="password"] {
   font-size: 15px;
   transition: 0.2s ease;
 }
-
+/* label style */
+.mat-tab-label{
+  
+  color:white;
+  font-weight: 500;
+  text-decoration: white;
+  min-width: 60px!important;
+}
+/* focus style */
+.mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-group.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus{
+ 
+  color:white;
+  font-weight: 500;
+  text-decoration: white;
+}
+/* ink bar style */
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+  
+  color:white;
+  font-weight: 500;
+  text-decoration: white;
+} 
 input[type="text"]:focus,
 input[type="password"]:focus {
   border-bottom: 2px solid #16a085;

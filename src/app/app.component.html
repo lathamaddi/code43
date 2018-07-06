@@ -23,14 +23,14 @@
   <mat-toolbar>
    
     <img src="../assets/images/Spot43 Logo.png" width="150" height="60" style="padding: 10px;" title="spot43" alt="spot43"/>
-    <nav mat-tab-nav-bar style="float: right;position: absolute; right: 0;" layout-align="end center" *ngIf="!isMainMenuHidden">
+    <nav mat-tab-nav-bar style="float: right;position: absolute; right: 0;" layout-align="end center" *ngIf="!isMainMenuHidden&&!loginService.isSignIn">
       <a mat-tab-link
          *ngFor="let routeLink of routeLinks; let i = index;"
          [routerLink]="routeLink.link"
          routerLinkActive="mat-tab-link-active"
          #rla="routerLinkActive"
          [active]="activeLinkIndex === i"
-         (click)="isMainMenuHidden=true;activeLinkIndex = i"
+         (click)="selectMainMenu(i)"
          [routerLinkActiveOptions]="{exact: true}">
           {{routeLink.label}}
       </a>

@@ -16,7 +16,8 @@ export class DefineCriteriaComponent implements OnInit {
   venues = new FormControl();
   citiesList: any[];
   venuesList: any[];
-
+  public value : number;
+  public adValue:number;
   constructor(private router: Router) {
     this.citiesList = ['All', 'Bellevue', 'Seattle', 'Kirkland'];
     this.venuesList = ['All', 'Dining - Upscale', 'Dining - Casual', 'Bar - Upscale', 'Bar - Casual'];
@@ -24,6 +25,8 @@ export class DefineCriteriaComponent implements OnInit {
 
   ngOnInit() {
     this.stepper.selectedIndex = 0;
+    this.value=4;
+    this.adValue=20;
   }
 
   onWhereSubmit() {

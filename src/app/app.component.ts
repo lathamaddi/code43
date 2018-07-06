@@ -55,12 +55,35 @@ export class AppComponent implements OnInit {
     }
  
   }
+  selectMainMenu(i)
+  {
+    this.isMainMenuHidden =true;
+    this.activeLinkIndex = i;
+    this.loginService.isHost=false;
+    this.loginService.isAdvertiser=false;
+    this.loginService.isAgency=false;
+    switch (i) {
+      case 0:
+        this.loginService.isHost=true;
+        break;
+        case 1:
+        this.loginService.isAdvertiser=true;
+        break;
+        case 2:
+        this.loginService.isAgency=true;
+        break;
+      default:
+        break;
+    }
+    
+  }
   someMethod() {
     this.trigger.openMenu();
   }
 
   public ngOnInit() {
     this.router.events.subscribe((res) => {
+      
       this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
    });
   }

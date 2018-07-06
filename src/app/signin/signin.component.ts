@@ -10,7 +10,7 @@ import { LoginService } from '../services/login.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private snackBar:MatSnackBar,private route:Router,private loginService:LoginService) { }
+  constructor(private snackBar:MatSnackBar,private router:Router,private loginService:LoginService) { }
    userName:string;
    passWord:string;
    
@@ -19,10 +19,17 @@ export class SigninComponent implements OnInit {
   
   login()
   {
-    if(this.userName=="user"&&this.passWord=="user")
+    if(this.userName=="ad"&&this.passWord=="ad")
     {
       this.loginService.isSignIn =true;
-      this.route.navigate(['hosts']); 
+      this.router.navigateByUrl('advertise/dashboard');
+      this.loginService.isAdvertiser=true;
+    }
+    else if(this.userName=="agent"&&this.passWord=="agent")
+    {
+      this.loginService.isSignIn =true;
+      this.router.navigateByUrl('advertise/dashboard');
+      this.loginService.isAgency=true;
     }
     else
     {
