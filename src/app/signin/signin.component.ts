@@ -22,15 +22,18 @@ export class SigninComponent implements OnInit {
     if(this.userName=="ad"&&this.passWord=="ad")
     {
       this.loginService.isSignIn =true;
-      this.router.navigateByUrl('advertise/dashboard');
       this.loginService.isAdvertiser=true;
+      this.loginService.isAgency=false;
+      this.router.navigate(['hosts']);
     }
     else if(this.userName=="agent"&&this.passWord=="agent")
     {
       this.loginService.isSignIn =true;
-      this.router.navigateByUrl('advertise/dashboard');
       this.loginService.isAgency=true;
+      this.loginService.isAdvertiser=false;
+      this.router.navigate(['hosts']);
     }
+    
     else
     {
       this.snackBar.open('invalid credentials', '', {

@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     this.routeLinks = [
       {
           label: 'Hosts',
-          link: './signup',
+          link: './main',
           index: 0
       }, {
           label: 'Advertisers',
@@ -85,6 +85,7 @@ export class AppComponent implements OnInit {
     }
     else
     {
+      this.isMainMenuHidden=false;
       this.router.navigate(['']);
     }
   }

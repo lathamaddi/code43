@@ -22,7 +22,7 @@
   </mat-sidenav>
   <mat-toolbar>
    
-    <img src="../assets/images/Spot43 Logo.png" width="150" (click)="home()"
+    <img src="../assets/images/Spot43 Logo.png" width="180" (click)="home()"
      height="60" style="padding: 10px;cursor: pointer;" title="spot43"
      alt="spot43"/>
     <nav mat-tab-nav-bar style="float: right;position: absolute; right: 0;" layout-align="end center" *ngIf="!isMainMenuHidden&&!loginService.isSignIn">
@@ -36,6 +36,7 @@
          [routerLinkActiveOptions]="{exact: true}">
           {{routeLink.label}}
       </a>
+     
     </nav>
     <a *ngIf="isMainMenuHidden&&!loginService.isSignIn" [routerLink]="['/signin']" style="float: right;position: absolute; right: 0;font-size: 16px;;">Already have an account?</a>
                

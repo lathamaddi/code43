@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
     this.loginService.isSignIn =true;
     if(this.loginService.isAdvertiser)
     {
-      this.router.navigateByUrl('advertise/dashboard');
+      this.router.navigate(['hosts']);
     }
     else if(this.loginService.isAgency)
     {
