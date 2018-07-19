@@ -1,22 +1,22 @@
 <div id="login-box">
-    <h1 style="padding:1% 0 0 32%">
+    <h1 style="padding:1% 0 0 22%">
       <span *ngIf="!isSubmitted">Set your ad creative</span>
-      <span *ngIf="isSubmitted">Congratulations!</span>
+      <span style="padding:1% 0 0 25%" *ngIf="isSubmitted">Congratulations!</span>
     </h1> 
     <h3>
       <span *ngIf="!isSubmitted"
-       style="padding:1% 0 0 8%;color:#1156cc;">
+       style="padding:1% 0 0 16%;color:#1156cc;font-size:18px !important;">
         Now that you've reserved your placements, tell us what ad creative we should put into rotation.
       </span>
-      <span *ngIf="isSubmitted" style="padding: 112px; text-align: center;color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">
+      <span *ngIf="isSubmitted" style="padding:1% 0 0 24%; text-align: center;color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">
         Your Seattle Broad - May 2018 campaign is set to go live on May 20, 2018
       </span>
     </h3>
     <div class="submitLeft" *ngIf="isSubmitted">
-      <div style="text-align:center; background-color: lightgrey; height: 60px;">
-          <span style="text-align: center;color:orange; padding-right: 27%;"><br>
+      <div style="text-align:center; background-color:  #e7effc;; height: 60px;">
+          <span style="color:orange; padding:1% 0 0 16%;font-weight: 900;font-size: 16px !important;"><br>
             Your ad creative has been submitted for approval.
-          </span><br><br>
+          </span>
           <div style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 36% 0 15%;"> 
             <i> You will receive an email notification when all creative has been approved. You can make updates to your ad create at any time by going to your dashboard and clicking "Edit Ad" for this campaign.</i>
           </div>
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="left" *ngIf="!isSubmitted">
-      <div *ngIf="!isSubmitted"  style="font-size: 20px;padding:1% 0 0 15%">
+      <div *ngIf="!isSubmitted"  style="font-size: 20px;padding:1% 0 0 12%">
         How would you like to select: <br/><br>
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
             <mat-button-toggle value="adlibrary">Choose from Ad Library</mat-button-toggle>
@@ -59,7 +59,7 @@
         </span>
       </div>
   </div>
-  <div class="right">
+  <div class="right" *ngIf="!isSubmitted" >
       <div *ngIf="!isSubmitted"  style="text-align: center; font-size: 20px;">
          <b> Ad Guidelines</b><br/>
       </div>

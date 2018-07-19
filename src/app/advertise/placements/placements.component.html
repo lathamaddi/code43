@@ -35,10 +35,10 @@
     <br />
     <div class="left">
             <div *ngIf="this.reservedPlacements && !this.paymentAuthorize" style="max-width: 80%;;">
-                    <h1 > 
-                            <span style="text-align: center;">Please authorize a payment to reserve your selections</span>
+                    <h1 style="margin-left:15% !important;font-size:22px !important;"> 
+                            <span style="text-align: center;vertical-align: middle !important;">Please authorize a payment to reserve your selections</span>
                         </h1>
-                        <h4 style=" padding: 0 0 0 32%;">
+                        <h4 style=" padding: 0 0 0 28%;">
                             <span>Your placements will be held for 15 minutes</span>
                         </h4>
                         <div style="background-color: lightblue; padding: 0 0 0 35%; font-size: 15px;">
@@ -65,13 +65,13 @@
             </div>   
           
             <div *ngIf="this.reservedPlacements && this.paymentAuthorize" style="max-width: 80%;;">
-                <h1 > 
+                <h1 style="font-size:24px !important;padding: 0 0 0 25%;font-size: 20px;"> 
                     Your placements are reserved!
                 </h1>
-                <h3 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 1%;">
+                <h4 style="margin-left:5% !important;font-size:18px !important;">
                     You are now are ready to add your advertisement creative to this campaign.
-                </h3>
-                <div style="background-color: lightblue; padding: 0 0 0 35%;font-size: 20px; color: green;">
+                </h4>
+                <div style="background-color: lightblue; padding: 0 0 0 32%;font-size: 20px; color: green;">
                   Your payment has been approved.
                   <br />          
                 </div>
