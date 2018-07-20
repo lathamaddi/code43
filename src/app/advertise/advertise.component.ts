@@ -11,7 +11,7 @@ import { BroadcasterService } from 'ng-broadcaster';
 export class AdvertiseComponent implements OnInit, OnDestroy {
   routeLinks: any[];
   activeLinkIndex = 0;
-  isAdvertiseMenuHidden = false;
+  isAdvertiseMenuHidden = true;
   private subscription: Subscription;
 
   constructor(private router: Router, private broadcaster: BroadcasterService) {
@@ -31,6 +31,9 @@ export class AdvertiseComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     this.subscription = this.broadcaster.on<any>('onCreateCampaign').subscribe((obj) => {
+      this.isAdvertiseMenuHidden = obj ? true : false;
+    });
+    this.subscription = this.broadcaster.on<any>('dashboard').subscribe((obj) => {
       this.isAdvertiseMenuHidden = obj ? true : false;
     });
     this.router.events.subscribe((res) => {

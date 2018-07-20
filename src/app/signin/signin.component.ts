@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '../../../node_modules/@angular/material';
 import { Router } from '../../../node_modules/@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-signin',
@@ -9,7 +10,7 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private snackBar:MatSnackBar,private route:Router) { }
+  constructor(private snackBar:MatSnackBar,private router:Router,private loginService:LoginService) { }
    userName:string;
    passWord:string;
    
@@ -18,10 +19,21 @@ export class SigninComponent implements OnInit {
   
   login()
   {
-    if(this.userName=="user"&&this.passWord=="user")
+    if(this.userName=="ad"&&this.passWord=="ad")
     {
-      this.route.navigate(['hosts']); 
+      this.loginService.isSignIn =true;
+      this.loginService.isAdvertiser=true;
+      this.loginService.isAgency=false;
+      this.router.navigate(['hosts']);
     }
+    else if(this.userName=="agent"&&this.passWord=="agent")
+    {
+      this.loginService.isSignIn =true;
+      this.loginService.isAgency=true;
+      this.loginService.isAdvertiser=false;
+      this.router.navigate(['hosts']);
+    }
+    
     else
     {
       this.snackBar.open('invalid credentials', '', {

@@ -1,22 +1,23 @@
 <div id="login-box">
-    <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 25%;"> 
+    <h1 style="padding:1% 0 0 22%">
       <span *ngIf="!isSubmitted">Set your ad creative</span>
-      <span *ngIf="isSubmitted">Congratulations!</span>
-    </h2> <br>
-    <h2>
-      <span *ngIf="!isSubmitted" style="padding: 50px; text-align: center;color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">
+      <span style="padding:1% 0 0 25%" *ngIf="isSubmitted">Congratulations!</span>
+    </h1> 
+    <h3>
+      <span *ngIf="!isSubmitted"
+       style="padding:1% 0 0 16%;color:#1156cc;font-size:18px !important;">
         Now that you've reserved your placements, tell us what ad creative we should put into rotation.
       </span>
-      <span *ngIf="isSubmitted" style="padding: 112px; text-align: center;color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">
+      <span *ngIf="isSubmitted" style="padding:1% 0 0 27%; text-align: center;color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">
         Your Seattle Broad - May 2018 campaign is set to go live on May 20, 2018
       </span>
-    </h2>
+    </h3>
     <div class="submitLeft" *ngIf="isSubmitted">
-      <div style="text-align:center; background-color: lightgrey; height: 60px;">
-          <span style="text-align: center;color:orange; padding-right: 27%;"><br>
+      <div style="background-color:  #e7effc;; height: 60px;padding:0 0 0 36%;">
+          <span style="color:orange; font-weight: 900;font-size: 16px !important;"><br>
             Your ad creative has been submitted for approval.
-          </span><br><br>
-          <div style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 36% 0 15%;"> 
+          </span>
+          <div style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 36% 0 18%;"> 
             <i> You will receive an email notification when all creative has been approved. You can make updates to your ad create at any time by going to your dashboard and clicking "Edit Ad" for this campaign.</i>
           </div>
           <br>
@@ -25,7 +26,7 @@
       </div>
     </div>
     <div class="left" *ngIf="!isSubmitted">
-      <div *ngIf="!isSubmitted"  style="text-align: center; font-size: 20px;">
+      <div *ngIf="!isSubmitted"  style="font-size: 20px;padding:1% 0 0 12%">
         How would you like to select: <br/><br>
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
             <mat-button-toggle value="adlibrary">Choose from Ad Library</mat-button-toggle>
@@ -35,30 +36,30 @@
           Note: All new creative must be reviewed and approved. This will take 24-48 hours.
         </span><br><br>
       </div> 
-      <div *ngIf="!isSubmitted"  style="border-radius: 5px;height: 250px;border: 1px solid blue; background-color: lightgrey;">
-        <div style="text-align: center; vertical-align: middle; padding-top: 80px;">
-            <button mat-raised-button color="primary">Click to upload</button>
-            <div style="text-align: center">
-              OR
-            </div>
-            <div style="text-align: center;">
+      <div *ngIf="!isSubmitted" 
+       style="padding:1% 0 0 22%">
+        <div >
+            <button  mat-raised-button color="primary">Click to upload</button>
+          
+            <div >
               <span>Drag files here</span>
             </div>
         </div>
         <br>
       </div>
-      <div *ngIf="!isSubmitted"  style="text-align: center;">
+      <div *ngIf="!isSubmitted" 
+         style="padding:1% 0 0 19%">
         <a>[Advanced] Schedule creative by week</a> <br><br>
-        <button mat-raised-button color="primary" (click)="onSubmit($event)">SUBMIT FOR APPROVAL</button>
+        <button mat-raised-button color="primary"  style="width: 300px;"  (click)="onSubmit($event)">SUBMIT FOR APPROVAL</button>
         <br><br/>
-        <span style="font-size: 20px;">
+        <span style="font-size: 14px;">
           <b>Not ready to select an ad creative?</b><br>
           <span>No Problem! Just add it later from your Dashboard.</span><br>
-          <span>Note: Ad creative must be added no later than 48 hours prior to your campaign start date.</span>
+          <span>Note: Ad creative must be added no later than <br>48 hours prior to your campaign start date.</span>
         </span>
       </div>
   </div>
-  <div class="right">
+  <div class="right" *ngIf="!isSubmitted" >
       <div *ngIf="!isSubmitted"  style="text-align: center; font-size: 20px;">
          <b> Ad Guidelines</b><br/>
       </div>

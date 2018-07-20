@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '../../../../../node_modules/@angular/router';
 import { HostServicesService } from '../../../services/host-services.service';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
   selector: 'app-about-business',
@@ -16,22 +17,36 @@ export class AboutBusinessComponent implements OnInit {
  public createClient:boolean;
  public index:number;
  public createCampign:boolean;
-  constructor(private router:Router,private hostService:HostServicesService) { }
+ public header:string;
+
+  constructor(private router:Router,private hostService:HostServicesService,public loginService:LoginService) { }
 
   ngOnInit() {
-    this.isAddAgency=false;
+    this.isAddAgency=this.loginService.isAgency;
     this.createClient=false;
-    this.isUpdateProfile=true;
+    this.isUpdateProfile=this.loginService.isAdvertiser;
     this.isAddClient=false;
     this.createCampign=false;
     this.index=1;
+    this.header='Tell us about your agency';
+    if(this.isUpdateProfile)
+    {
+      this.header = 'Tell us about your business';
+    }
   }
   signup()
   {
-    this.isAddAgency=true;
-    this.isUpdateProfile=false;
-    this.isAddClient=false;
-    this.index=2;
+    if(this.loginService.isAdvertiser)
+    {
+      this.router.navigateByUrl('advertise/dashboard');
+    }
+    else
+    {
+        this.isAddAgency=true;
+        this.isUpdateProfile=false;
+        this.isAddClient=false;
+        this.index=2;
+    }
   }
   addAgency()
   {
@@ -39,6 +54,7 @@ export class AboutBusinessComponent implements OnInit {
     this.isUpdateProfile=false;
     this.isAddClient=true;
     this.index=3;
+    this.header="Thank you for signing up!";
   }
   addClient()
   {
@@ -47,19 +63,15 @@ export class AboutBusinessComponent implements OnInit {
     this.isAddClient=false;
     this.createClient=true;
     this.index=3;
+    this.header="Let’s add a new client";
   }
   addCampign()
   {
-    this.isAddAgency=false;
-    this.isUpdateProfile=false;
-    this.isAddClient=false;
-    this.createClient=false;
-    this.createCampign=true;
-    this.index=4;
+    this.router.navigateByUrl('advertise/dashboard');
   }
   crCampign()
   {
   
-    this.router.navigate(['campaign']);
+    this.router.navigateByUrl('advertise/dashboard');
   }
 }

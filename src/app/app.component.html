@@ -21,22 +21,33 @@
     </mat-toolbar>
   </mat-sidenav>
   <mat-toolbar>
-    <button mat-button class="app-menu-button" (click)="sidenav.toggle()">
-      <i class="material-icons">menu</i>
-    </button>
-    <span class="title">Sport TV</span>
-    <nav mat-tab-nav-bar style="float: right;margin-left: 780px;" *ngIf="!isMainMenuHidden">
+   
+    <img src="../assets/images/Spot43 Logo.png" width="180" (click)="home()"
+     height="60" style="padding: 10px;cursor: pointer;" title="spot43"
+     alt="spot43"/>
+    <nav mat-tab-nav-bar style="float: right;position: absolute; right: 0;" layout-align="end center" *ngIf="!isMainMenuHidden&&!loginService.isSignIn">
       <a mat-tab-link
          *ngFor="let routeLink of routeLinks; let i = index;"
          [routerLink]="routeLink.link"
          routerLinkActive="mat-tab-link-active"
          #rla="routerLinkActive"
          [active]="activeLinkIndex === i"
-         (click)="activeLinkIndex = i"
+         (click)="selectMainMenu(i)"
          [routerLinkActiveOptions]="{exact: true}">
           {{routeLink.label}}
       </a>
+     
     </nav>
+    <a *ngIf="isMainMenuHidden&&!loginService.isSignIn" [routerLink]="['/signin']" style="float: right;position: absolute; right: 0;font-size: 16px;;">Already have an account?</a>
+               
+    <mat-form-field  style="float: right;position: absolute; right: 0;;" *ngIf="loginService.isSignIn">
+     
+        <mat-select item-height="10" [(value)]="selected" (selectionChange)="changeSelect(selected)">
+          <mat-option value="option1">Jason</mat-option>
+          <mat-option value="option2">Sign Out</mat-option>
+        </mat-select>
+     
+    </mat-form-field>
   </mat-toolbar>
   <router-outlet></router-outlet>
 </mat-sidenav-container>

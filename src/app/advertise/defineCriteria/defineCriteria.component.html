@@ -1,73 +1,84 @@
+
+
 <div id="login-box">
-  <h2 style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 0 0 15%;"> 
+  <h1 style="padding:1% 0 0 14%;word-wrap: break-word;"> 
     <span *ngIf="stepper.selectedIndex === 0">Where would you like to place your ads?</span>
     <span *ngIf="stepper.selectedIndex === 1">When do you want to run your campaign?</span>
     <span *ngIf="stepper.selectedIndex === 2">How often would you like your ads to run?</span>
-  </h2>
+  </h1>
   <div class="left">
     <div *ngIf="stepper.selectedIndex === 0">
-        <mat-form-field style="width: 'auto'">
-            <mat-select placeholder="Cities" [formControl]="cities" multiple> Cities
-              <mat-option *ngFor="let city of citiesList" [value]="city">{{city}}</mat-option>
-              <mat-select-trigger>
-                <span> {{cities.value ? cities.value.join('; ') : ''}}</span>
-              </mat-select-trigger>
-            </mat-select>
-          </mat-form-field>
+        <h3>Cities</h3>
+       
+           
+          <mat-checkbox>All</mat-checkbox><br/>
+          <mat-checkbox>Bellevue</mat-checkbox>
+          <br/>
+          <mat-checkbox>Seattle</mat-checkbox><br/>
+          <mat-checkbox>Kirkland</mat-checkbox><br/>
+        
           <br />
-          <mat-form-field style="width: 'auto'">
-              <mat-select placeholder="Venue Type(s)" [formControl]="venues" multiple> Venue Type(s)
-                <mat-option *ngFor="let venue of venuesList" [value]="venue">{{venue}}</mat-option>
-                <mat-select-trigger>
-                  <span> {{venues.value ? venues.value.join('; ') : ''}}</span>
-                </mat-select-trigger>
-              </mat-select>
-          </mat-form-field>
-          <br />
-          <div style="width: auto"> Target address <i class="fa fa-info-circle"></i></div>
-          <div>
-              (optional) <span class="width: 15px;">&nbsp;</span>
-              <a mat-raised-button routerLink=".">select on map </a>
-          </div><br>
-          <input type="submit" name="next_1" value="NEXT" (click)="onWhereSubmit()" />
+          <h3>Venue types</h3>
+         
+              
+              <mat-checkbox>All</mat-checkbox><br/>
+              <mat-checkbox>Dining - Upscale</mat-checkbox>
+              <br />
+              <mat-checkbox>Dining - Casual</mat-checkbox><br/>
+              <mat-checkbox>Bar - Upscale</mat-checkbox><br/>
+              <br />
+              
+              
+            
+              <button style="width: 100px !important;"  md-raised-button (click)="onWhereSubmit(stepper.selectedIndex)" >
+                  NEXT
+                  </button>
+         
     </div>
     <div *ngIf="stepper.selectedIndex === 1">
-      <label>Start Date (Mondays only)</label><br/>
+      <h4>Start Date (Mondays only)</h4>
         <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <input matInput [matDatepicker]="picker"   style="width: 250px !important;"placeholder="MM/DD/YYYY">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field> <br>
-        <label>Duration (min 4 weeks)</label><br/>
+        <br>
+        <h4>Duration (min 4 weeks)</h4>
         <mat-slider
-          style="margin: 10px;"
-          [invert]="false"
-          [max]="100"
-          [min]="0"
-          [step]="1"
+          [invert]="false" color="primary" style="width: 210px;"
+          [max]="12" [(ngModel)]="value"  
+          [thumbLabel]="true"
           [vertical]='false'>
         </mat-slider>
-        <br />
-        <input type="submit" name="back_1" value="BACK" (click)="onBackSubmit(stepper.selectedIndex)" />
-        <input type="submit" name="next_2" value="NEXT" (click)="onWhenSubmit(stepper.selectedIndex)" />
+        <br /> <br />
+        <button style="width: 100px !important;"  md-raised-button (click)="onBackSubmit(stepper.selectedIndex)" >
+            BACK
+            </button>
+            <button style="width: 100px !important;" md-raised-button (click)="onWhenSubmit(stepper.selectedIndex)" >
+                NEXT
+                </button>
+     
     </div>
     <div *ngIf="stepper.selectedIndex === 2">
-        <label>Ad rotation frequency (20 times/hr)</label><br/>
+        <h4>Ad rotation frequency (20 times/hr)</h4>
         <mat-slider
-          style="margin: 10px;"
-          [invert]="false"
-          [max]="100"
-          [min]="0"
-          [step]="1"
+          [invert]="false" color="primary" style="width: 250px;"
+          [max]="200" [(ngModel)]="adValue"  
+          [thumbLabel]="true"
           [vertical]='false'>
         </mat-slider>
-        <br />
-        <input type="submit" name="back_1" value="BACK" (click)="onBackSubmit(stepper.selectedIndex)" />
-        <input type="submit" name="next_2" value="SELECT PLACEMENTS" (click)="onSelectPlacement()" />
+        <br /> <br />
+        <button style="width: 100px !important;" md-raised-button (click)="onBackSubmit(stepper.selectedIndex)" >
+            BACK
+            </button>
+            <button style="width: 180px !important;" md-raised-button (click)="onSelectPlacement()" >
+                SELECT PLACEMENTS
+                </button>
+      
     </div>
 </div>
 
-<div class="right">
+<div class="right" >
 <table>
   <tr style="align-content: center;">
       Define your placement criteria
