@@ -35,13 +35,15 @@
     <br />
     <div class="left">
             <div *ngIf="this.reservedPlacements && !this.paymentAuthorize" style="max-width: 80%;;">
-                    <h1 style="margin-left:15% !important;font-size:22px !important;"> 
+                    <h1 style="margin-left:18% !important;font-size:22px !important;"> 
                             <span style="text-align: center;vertical-align: middle !important;">Please authorize a payment to reserve your selections</span>
                         </h1>
                         <h4 style=" padding: 0 0 0 28%;">
                             <span>Your placements will be held for 15 minutes</span>
                         </h4>
-                        <div style="background-color: lightblue; padding: 0 0 0 35%; font-size: 15px;">
+                        <br/>  <br/>
+                        <div style="background-color: lightblue; padding: 0 0 0 32%; font-size: 15px;">
+                         
                           Your placements are being held for: 13:24
                           <br />          
                         </div>
@@ -50,12 +52,15 @@
                         style="font-size: 20px; color:#1156cc;padding: 0 0 0 38%;;">
                             Amound Due: $ 2,500
                         </div>
-                        <div style="padding: 10px; font-size: 10px; text-align: center;">
+                        <br/> 
+                        <div style=" font-size: 12px; text-align: center;width: 100px;padding: 0 0 0 38%;;">
                             <button mat-raised-button color="primary" (click)="authorizePayment($event)">AUTHORIZE PAYMENT</button>
                         </div>
-                        <div style="padding: 10px;text-align: center;">
+                        <br/>
+                        <div style=" font-size: 12px; padding: 0 0 0 38%;;">
                             <a>Continue without payment</a>
                         </div> 
+                        <br/> 
                         <div  style="font-size: 12px;padding: 0 0 0 38%;;">
                                 Not ready to authorize a payment?<br/>
                                 You can continue later from your Dashboard, but<br/>
@@ -65,17 +70,17 @@
             </div>   
           
             <div *ngIf="this.reservedPlacements && this.paymentAuthorize" style="max-width: 80%;;">
-                <h1 style="font-size:24px !important;padding: 0 0 0 25%;font-size: 20px;"> 
+                <h1 style="font-size:24px !important;padding: 0 0 0 32%;font-size: 20px;"> 
                     Your placements are reserved!
                 </h1>
-                <h4 style="margin-left:5% !important;font-size:18px !important;">
+                <h4 style="margin-left:8% !important;font-size:18px !important;padding: 0 0 0 12%;">
                     You are now are ready to add your advertisement creative to this campaign.
                 </h4>
-                <div style="background-color: lightblue; padding: 0 0 0 32%;font-size: 20px; color: green;">
+                <div style="background-color: lightblue; padding: 0 0 0 33%;font-size: 20px; color: green;">
                   Your payment has been approved.
                   <br />          
                 </div>
-                <div style="padding: 20px; font-size: 20px; text-align: center;">
+                <div style="padding: 10px; font-size: 20px; text-align: center;">
                     <button mat-raised-button color="primary" (click)="onAdCreative($event)">SELECT AD CREATIVE</button>
                 </div>
                 <div  style="font-size: 12px;padding: 0 0 0 35%;;">
