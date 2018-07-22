@@ -1,235 +1,229 @@
-<div id="login-box">
-    <h4 style="padding:1% 0 0 22%;color: green !important;" *ngIf="isUpdateProfile||isAddAgency">
-            <i class="material-icons">
-                    check_circle
-                    </i> We’ve sent an account confirmation to your email
+
+
+<div class="w3-twothird w3-container" style="text-align: center !important;width: 75% !important;padding-top: 5% !important;">
+    <h4 style="color: green !important;" *ngIf="isUpdateProfile||isAddAgency">
+        <i class="material-icons">
+            check_circle
+        </i> We’ve sent an account confirmation to your email
     </h4>
-     
-        <h1 style="padding:1% 0 0 15%">
-            {{header}}
-        </h1>
-    <div class="left">
 
-        <table *ngIf="isUpdateProfile">
-          
-            <tr>
-                <input type="text" name="username" placeholder="Enter your business name" />
-            </tr>
-            <tr>
-                <input type="text" name="LASTNAME" placeholder="Street" />
-            </tr>
-            <tr>
-                <table>
-                    <tr>
-                        <td>
-                            <input style="width:80px;" type="text" name="LASTNAME" placeholder="City" />
-                        </td>
-                        <td>
-                            <mat-select style="width:60px;margin-left: 10px;" placeholder="State">
-                                <mat-option>WA</mat-option>
+    <h1 >
+        {{header}}</h1>
+         <table *ngIf="isUpdateProfile" align="center" style="text-align: center !important;justify-content: center !important;">
 
-                            </mat-select>
-                        </td>
-                        <td>
-                            <input style="width:80px;" type="text" name="LASTNAME" placeholder="Zip" />
-                        </td>
-                    </tr>
-                </table>
-
-            </tr>
-            <tr>
-                <input type="text" name="email" placeholder="(123)123-1234" />
-            </tr>
-            <tr>
-                <input type="text" name="password2" placeholder="e.g,salon,injury attorney,dentist" />
-
-            </tr>
-            <tr>
-                <br/>
-                <button style="margin-left: 50px;" md-raised-button (click)="signup()">
-                    CREATE PROFILE
-                </button>
-
-            </tr>
-        </table>
-        <table *ngIf="isAddAgency">
-            
+        <tr>
+            <input type="text" name="username" placeholder="Enter your business name" />
+        </tr>
+        <tr>
+            <input type="text" name="LASTNAME" placeholder="Street" />
+        </tr>
+        <tr>
+            <table>
                 <tr>
-                    <input type="text" name="username" placeholder="enter your agency name" />
-                </tr>
-                <tr>
-                    <input type="text" name="LASTNAME" placeholder="agency address" />
-                </tr>
-                <tr>
-                    <table>
-                        <tr>
-                            <td>
-                                <input style="width:80px;" type="text" name="LASTNAME" placeholder="City" />
-                            </td>
-                            <td>
-                                <mat-select style="width:60px;margin-left: 10px;" placeholder="State">
-                                    <mat-option>WA</mat-option>
-    
-                                </mat-select>
-                            </td>
-                            <td>
-                                <input style="width:80px;" type="text" name="LASTNAME" placeholder="Zip" />
-                            </td>
-                        </tr>
-                    </table>
-    
-                </tr>
-                <tr>
-                    <input type="text" name="email" placeholder="(123)123-1234" />
-                </tr>
-                <tr>
-                        <button style="margin-left: 50px;" md-raised-button (click)="addAgency()">
-                                CREATE PROFILE
-                            </button>
-                   
-                </tr>
-            </table>
-            <table *ngIf="isAddClient&&loginService.isAgency">
-              
-                <tr>
-                        
-                    <h4>Now let’s add a new client
-                    </h4>
-                </tr>
-    
-                <tr>
-                        <br/> <br/>
-                        <button style="margin-left: 50px;" md-raised-button (click)="addClient()">
-                                ADD NEW CLIENT
-                            </button>
-                
-                </tr>
-            </table>
-            <table *ngIf="createClient&&loginService.isAgency">
-               
-                <tr>
-                    <input type="text" name="username" placeholder="enter your business name" />
-                </tr>
-                <tr>
-                    <input type="text" name="LASTNAME" placeholder="client address" />
-                </tr>
-                <tr>
-                    <table>
-                        <tr>
-                            <td>
-                                <input style="width:80px;" type="text" name="LASTNAME" placeholder="City" />
-                            </td>
-                            <td>
-                                <mat-select style="width:60px;margin-left: 10px;" placeholder="State">
-                                    <mat-option>WA</mat-option>
-    
-                                </mat-select>
-                            </td>
-                            <td>
-    
-                                <input style="width:80px;" type="text" name="LASTNAME" placeholder="Zip" />
-                            </td>
-                        </tr>
-                    </table>
-    
-                </tr>
-                <tr>
-                    <input type="text" name="email" placeholder="client phone" />
-                </tr>
-                <tr>
-                    <input type="text" name="password2" placeholder="e.g,salon,injury attorney,dentist" />
-    
-                </tr>
-                <tr>
-                        <button style="margin-left: 50px;" md-raised-button (click)="addCampign()">
-                                CREATE PROFILE
-                            </button>
-                
-                </tr>
-            </table>
-            <table *ngIf="createCampign">
-               
-               
-    
-                <tr>
-                        <button style="margin-left: 50px;" md-raised-button (click)="crCampign()">
-                                CREATE CAMPAIGN
-                            </button>
-                   
-                </tr>
-            </table>
-    </div>
+                    <td>
+                        <input style="width:80px;" type="text" name="LASTNAME" placeholder="City" />
+                    </td>
+                    <td>
+                        <mat-select style="width:60px;margin-left: 10px;" placeholder="State">
+                            <mat-option>WA</mat-option>
 
-    <div class="right">
-        <table *ngIf="loginService.isAgency">
-
-            <tr style="align-content: center;">
-                You’re about to place an ad on the newest OOH inventory
-            </tr>
-            <tr>
-                <mat-vertical-stepper [selectedIndex]="index" style="background-color: transparent;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
-                    [linear]="false" #stepper>
-                    <mat-step>
-
-                        <ng-template matStepLabel>Create new account</ng-template>
-
-                    </mat-step>
-
-                    <mat-step>
-
-                        <ng-template matStepLabel>Set up your business profile </ng-template>
-
-                    </mat-step>
-                    <mat-step>
-
-                        <ng-template matStepLabel>Set up your agency profile </ng-template>
-
-                    </mat-step>
-                    <mat-step>
-
-                        <ng-template matStepLabel>Add a Client </ng-template>
-
-                    </mat-step>
-                    <mat-step>
-
-                        <ng-template matStepLabel>Create your first campaign </ng-template>
-
-                    </mat-step>
-                </mat-vertical-stepper>
-            </tr>
-        </table>
-
-        <table *ngIf="loginService.isAdvertiser">
-
-                <tr style="align-content: center;">
-                    You’re about to place an ad on the newest OOH inventory
-                </tr>
-                <tr>
-                    <mat-vertical-stepper [selectedIndex]="index" style="background-color: transparent;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
-                        [linear]="false" #stepper>
-                        <mat-step>
-    
-                            <ng-template matStepLabel>Create new account</ng-template>
-    
-                        </mat-step>
-    
-                        <mat-step>
-    
-                            <ng-template matStepLabel>Set up your business profile </ng-template>
-    
-                        </mat-step>
-                       
-                        <mat-step>
-    
-                            <ng-template matStepLabel>Create your first campaign </ng-template>
-    
-                        </mat-step>
-                    </mat-vertical-stepper>
+                        </mat-select>
+                    </td>
+                    <td>
+                        <input style="width:80px;" type="text" name="LASTNAME" placeholder="Zip" />
+                    </td>
                 </tr>
             </table>
 
+        </tr>
+        <tr>
+            <input type="text" name="email" placeholder="(123)123-1234" />
+        </tr>
+        <tr>
+            <input type="text" name="password2" placeholder="e.g,salon,injury attorney,dentist" />
+
+        </tr>
+        <tr>
+            <br/>
+            <button style="margin-left: 50px;" md-raised-button (click)="signup()">
+                CREATE PROFILE
+            </button>
+
+        </tr>
+    </table>
+    <table *ngIf="isAddAgency" align="center" style="text-align: center !important;justify-content: center !important;"> 
+
+        <tr>
+            <input type="text" name="username" placeholder="enter your agency name" />
+        </tr>
+        <tr>
+            <input type="text" name="LASTNAME" placeholder="agency address" />
+        </tr>
+        <tr>
+            <table>
+                <tr>
+                    <td>
+                        <input style="width:80px;" type="text" name="LASTNAME" placeholder="City" />
+                    </td>
+                    <td>
+                        <mat-select style="width:60px;margin-left: 10px;" placeholder="State">
+                            <mat-option>WA</mat-option>
+
+                        </mat-select>
+                    </td>
+                    <td>
+                        <input style="width:80px;" type="text" name="LASTNAME" placeholder="Zip" />
+                    </td>
+                </tr>
+            </table>
+
+        </tr>
+        <tr>
+            <input type="text" name="email" placeholder="(123)123-1234" />
+        </tr>
+        <tr>
+            <button style="margin-left: 50px;" md-raised-button (click)="addAgency()">
+                CREATE PROFILE
+            </button>
+
+        </tr>
+    </table>
+    <table *ngIf="isAddClient&&loginService.isAgency" align="center" style="text-align: center !important;justify-content: center !important;">
+
+        <tr>
+
+            <h4>Now let’s add a new client
+            </h4>
+        </tr>
+
+        <tr>
+            <br/>
+            <br/>
+            <button style="margin-left: 50px;" md-raised-button (click)="addClient()">
+                ADD NEW CLIENT
+            </button>
+
+        </tr>
+    </table>
+    <table *ngIf="createClient&&loginService.isAgency" align="center" style="text-align: center !important;justify-content: center !important;">
+
+        <tr>
+            <input type="text" name="username" placeholder="enter your business name" />
+        </tr>
+        <tr>
+            <input type="text" name="LASTNAME" placeholder="client address" />
+        </tr>
+        <tr>
+            <table>
+                <tr>
+                    <td>
+                        <input style="width:80px;" type="text" name="LASTNAME" placeholder="City" />
+                    </td>
+                    <td>
+                        <mat-select style="width:60px;margin-left: 10px;" placeholder="State">
+                            <mat-option>WA</mat-option>
+
+                        </mat-select>
+                    </td>
+                    <td>
+
+                        <input style="width:80px;" type="text" name="LASTNAME" placeholder="Zip" />
+                    </td>
+                </tr>
+            </table>
+
+        </tr>
+        <tr>
+            <input type="text" name="email" placeholder="client phone" />
+        </tr>
+        <tr>
+            <input type="text" name="password2" placeholder="e.g,salon,injury attorney,dentist" />
+
+        </tr>
+        <tr>
+            <button style="margin-left: 50px;" md-raised-button (click)="addCampign()">
+                CREATE PROFILE
+            </button>
+
+        </tr>
+    </table>
+    <table *ngIf="createCampign" align="center">
 
 
-    </div>
-    <!-- <div class="or">OR</div> -->
+
+        <tr>
+            <button style="margin-left: 50px;" md-raised-button (click)="crCampign()">
+                CREATE CAMPAIGN
+            </button>
+
+        </tr>
+    </table>
+</div>
+<div class="w3-third w3-container" style="background-color:#e7effc;height:92vh !important;width: 25% !important;">
+    <table style="margin: 36% 4% 7% 2% !important;"*ngIf="loginService.isAgency">
+
+        <tr style="align-content: center;">
+            You’re about to place an ad on the newest OOH inventory
+        </tr>
+        <tr>
+            <mat-vertical-stepper [selectedIndex]="index" style="background-color: transparent;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+                [linear]="false" #stepper>
+                <mat-step>
+
+                    <ng-template matStepLabel>Create new account</ng-template>
+
+                </mat-step>
+
+                <mat-step>
+
+                    <ng-template matStepLabel>Set up your business profile </ng-template>
+
+                </mat-step>
+                <mat-step>
+
+                    <ng-template matStepLabel>Set up your agency profile </ng-template>
+
+                </mat-step>
+                <mat-step>
+
+                    <ng-template matStepLabel>Add a Client </ng-template>
+
+                </mat-step>
+                <mat-step>
+
+                    <ng-template matStepLabel>Create your first campaign </ng-template>
+
+                </mat-step>
+            </mat-vertical-stepper>
+        </tr>
+    </table>
+
+    <table style="margin: 36% 4% 7% 2% !important;" *ngIf="loginService.isAdvertiser">
+
+        <tr style="align-content: center;">
+            You’re about to place an ad on the newest OOH inventory
+        </tr>
+        <tr>
+            <mat-vertical-stepper [selectedIndex]="index" style="background-color: transparent;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+                [linear]="false" #stepper>
+                <mat-step>
+
+                    <ng-template matStepLabel>Create new account</ng-template>
+
+                </mat-step>
+
+                <mat-step>
+
+                    <ng-template matStepLabel>Set up your business profile </ng-template>
+
+                </mat-step>
+
+                <mat-step>
+
+                    <ng-template matStepLabel>Create your first campaign </ng-template>
+
+                </mat-step>
+            </mat-vertical-stepper>
+        </tr>
+    </table>
 </div>

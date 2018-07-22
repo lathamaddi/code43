@@ -25,7 +25,7 @@
     <img src="../assets/images/Spot43 Logo.png" width="180" (click)="home()"
      height="60" style="padding: 10px;cursor: pointer;" title="spot43"
      alt="spot43"/>
-    <nav mat-tab-nav-bar style="float: right;position: absolute; right: 0;" layout-align="end center" *ngIf="!isMainMenuHidden&&!loginService.isSignIn">
+    <nav mat-tab-nav-bar style="float: right;position: absolute; right: 0;top:0;" layout-align="end center" *ngIf="!isMainMenuHidden&&!loginService.isSignIn">
       <a mat-tab-link
          *ngFor="let routeLink of routeLinks; let i = index;"
          [routerLink]="routeLink.link"
@@ -40,7 +40,7 @@
     </nav>
     <a *ngIf="isMainMenuHidden&&!loginService.isSignIn" [routerLink]="['/signin']" style="float: right;position: absolute; right: 0;font-size: 16px;;">Already have an account?</a>
                
-    <mat-form-field  style="float: right;position: absolute; right: 0;;" *ngIf="loginService.isSignIn">
+    <mat-form-field  style="float: right;position: absolute; right: 0;top:0" *ngIf="loginService.isSignIn">
      
         <mat-select item-height="10" [(value)]="selected" (selectionChange)="changeSelect(selected)">
           <mat-option value="option1">Jason</mat-option>

@@ -30,12 +30,13 @@ export class PlacementsComponent implements OnInit {
   infowindow = [];
   region;
   icons;
-	geocoder = new google.maps.Geocoder();
 
+	geocoder = new google.maps.Geocoder();
+  breakpoint: number;
   public tiles = [
     { text: 'Pyramid Alehouse. 1', cols: 1, rows: 1, color: 'white', dataindx: 0 },
-    { text: 'Pyramid Alehouse. 2', cols: 1, rows: 1, color: 'white', dataindx: 1 },
-    { text: 'Pyramid Alehouse. 3', cols: 1, rows: 1, color: 'white', dataindx: 2 },
+    { text: 'Pyramid Alehouse. 2', cols: 1, rows: 1, color: 'white', dataindx: 1 }
+    
     
   ];
 
@@ -68,9 +69,16 @@ export class PlacementsComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+    this.breakpoint = (window.innerWidth <= 200) ? 1 : 3;
+    this.tiles = 
+    [{ text: 'Pyramid Alehouse. 1', cols: 1, rows: 1, color: 'white', dataindx: 0 },
+    { text: 'Pyramid Alehouse. 2', cols: 1, rows: 1, color: 'white', dataindx: 1 }
+   
+  ];
   }
-
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 200) ? 1 : 3;
+  }
   onShowVenueMap(evt: any) {
     this.showVenuesOnMap = !this.showVenuesOnMap;
     this.showPlacementsMap();
@@ -101,19 +109,17 @@ export class PlacementsComponent implements OnInit {
   }
 
   updateGrid(idx: any) {
-    this.gridList._tiles.forEach((tile, tidx) => {
-      if (idx === tidx) {
+  
         if (this.tiles[idx].color === 'lightblue') {
           this.tiles[idx].color = 'white';
         }
-      }
-    });
+    
   }
 
   selectedCard(evt: any, selTile: any, idx: any) {
     console.log(evt + ' : ' + selTile + ' - ' + idx);
-    this.gridList._tiles.forEach((tile, tidx) => {
-      if (idx === tidx) {
+   
+    
         if (this.tiles[idx].color === 'lightblue') {
           console.log('invalid!');
         } else {
@@ -121,8 +127,8 @@ export class PlacementsComponent implements OnInit {
           this.hideheader = true;
           this.selTiles.push(this.tiles[idx]);
         }
-      }
-    });
+    
+    
   }
 
   private addressInfo(i) {

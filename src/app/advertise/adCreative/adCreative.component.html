@@ -1,32 +1,33 @@
-<div id="login-box">
-    <h1 style="padding:1% 0 0 22%">
-      <span *ngIf="!isSubmitted">Set your ad creative</span>
-      <span style="padding:1% 0 0 25%" *ngIf="isSubmitted">Congratulations!</span>
-    </h1> 
-    <h3>
-      <span *ngIf="!isSubmitted"
-       style="padding:1% 0 0 16%;color:#1156cc;font-size:18px !important;">
-        Now that you've reserved your placements, tell us what ad creative we should put into rotation.
-      </span>
-      <span *ngIf="isSubmitted" style="padding:1% 0 0 27%; text-align: center;color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">
-        Your Seattle Broad - May 2018 campaign is set to go live on May 20, 2018
-      </span>
-    </h3>
-    <div class="submitLeft" *ngIf="isSubmitted">
-      <div style="background-color:  #e7effc;; height: 60px;padding:0 0 0 36%;">
-          <span style="color:orange; font-weight: 900;font-size: 16px !important;"><br>
-            Your ad creative has been submitted for approval.
-          </span>
-          <div style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;padding: 1% 36% 0 18%;"> 
-            <i> You will receive an email notification when all creative has been approved. You can make updates to your ad create at any time by going to your dashboard and clicking "Edit Ad" for this campaign.</i>
+
+<div class="w3-twothird w3-container" style="text-align: center !important;width: 75% !important;">
+    <h1 >
+        <span *ngIf="!isSubmitted">Set your ad creative</span>
+        <span  *ngIf="isSubmitted">Congratulations!</span>
+      </h1> 
+      <h3>
+        <span *ngIf="!isSubmitted"
+         style="color:#1156cc;font-size:18px !important;">
+          Now that you've reserved your placements, tell us what ad creative we should put into rotation.
+        </span>
+        <span *ngIf="isSubmitted" style="text-align: center;color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">
+          Your Seattle Broad - May 2018 campaign is set to go live on May 20, 2018
+        </span>
+      </h3>
+      <div class="submitLeft" *ngIf="isSubmitted">
+          <div style="background-color:  #e7effc;; height: 60px;">
+              <span style="color:orange; font-weight: 900;font-size: 16px !important;"><br>
+                Your ad creative has been submitted for approval.
+              </span>  <br>
+              <br />
+              <div style="color:#1156cc;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> 
+                <i> You will receive an email notification when all creative has been approved. You can make updates to your ad create at any time by going to your dashboard and clicking "Edit Ad" for this campaign.</i>
+              </div>
+              <br>
+              <br />
+              <span ><button mat-raised-button color="primary" (click)="onDashboard($event)">GO TO DASHBOARD</button></span>
           </div>
-          <br>
-          <br />
-          <span style="margin-right: 330px;"><button mat-raised-button color="primary" (click)="onDashboard($event)">GO TO DASHBOARD</button></span>
-      </div>
-    </div>
-    <div class="left" *ngIf="!isSubmitted">
-      <div *ngIf="!isSubmitted"  style="font-size: 20px;padding:1% 0 0 12%">
+        </div>
+    <div *ngIf="!isSubmitted"  style="font-size: 20px;">
         How would you like to select: <br/><br>
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
             <mat-button-toggle value="adlibrary">Choose from Ad Library</mat-button-toggle>
@@ -37,7 +38,7 @@
         </span><br><br>
       </div> 
       <div *ngIf="!isSubmitted" 
-       style="padding:1% 0 0 22%">
+       >
         <div >
             <button  mat-raised-button color="primary">Click to upload</button>
           
@@ -48,7 +49,7 @@
         <br>
       </div>
       <div *ngIf="!isSubmitted" 
-         style="padding:1% 0 0 19%">
+        >
         <a>[Advanced] Schedule creative by week</a> <br><br>
         <button mat-raised-button color="primary"  style="width: 300px;"  (click)="onSubmit($event)">SUBMIT FOR APPROVAL</button>
         <br><br/>
@@ -58,23 +59,31 @@
           <span>Note: Ad creative must be added no later than <br>48 hours prior to your campaign start date.</span>
         </span>
       </div>
-  </div>
-  <div class="right" *ngIf="!isSubmitted" >
-      <div *ngIf="!isSubmitted"  style="text-align: center; font-size: 20px;">
-         <b> Ad Guidelines</b><br/>
-      </div>
-      <div *ngIf="!isSubmitted"  style="width: 230px; height: 230px; padding-left: 20px; padding-top: 20px;">
-        <img width="230px" height="230px" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo">
-        <br/><br/>
-      </div>
-      <div  *ngIf="!isSubmitted" style="text-align: center; font-size: 20px;">
-        <b>Design Specs:</b><br/><br />
-        10 X 400 pixels <br/>
-        Min X resolution <br />
-        jpg, png<br />
-      </div> 
-      <div *ngIf="!isSubmitted"  style="text-align: center; font-size: 20px;">
-        <a>Download template</a>
-      </div>
-  </div>
-</div>  
+
+</div>
+
+
+<div class="w3-third w3-container" style="background-color:#e7effc;height:92vh !important;width: 25% !important;padding:5%  3% 3% 2%">
+    <div *ngIf="!isSubmitted"  style="text-align: center; font-size: 20px;">
+        <b> Ad Guidelines</b><br/>
+     </div>
+     <div *ngIf="!isSubmitted"  style="width: 230px; height: 230px; padding-left: 20px; padding-top: 20px;">
+       <img width="230px" height="230px" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo">
+       <br/><br/>
+     </div>
+     <div  *ngIf="!isSubmitted" style="text-align: center; font-size: 20px;padding: 25px;">
+       <b>Design Specs:</b><br/><br />
+       10 X 400 pixels <br/>
+       Min X resolution <br />
+       jpg, png<br />
+     </div> 
+     <div *ngIf="isSubmitted"  style="text-align: center; font-size: 20px;">
+      
+     <div >
+       <img width="230px" height="230px" mat-card-image src="https://material.angular.io/assets/img/examples/shibssa2.jpg" alt="Photo In Progress">
+       <br/><br/>
+     </div>
+     </div>
+
+   
+</div>

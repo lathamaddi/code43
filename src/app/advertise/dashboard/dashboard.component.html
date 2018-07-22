@@ -1,9 +1,49 @@
-<h1 style="padding:1% 0 0 30%">Thank you for signing up!</h1>
 
-<h4 style="padding:1% 0 0 35%"> Now let’s get your first ad campaign created.</h4>
 
-<br/>
-<div  style="padding:1% 0 0 40%;">
-  <button mat-raised-button color="primary" (click)="createNewCampaign($event)">CREATE NEW CAMPAIGN</button>
+
+
+<div class="w3-twothird w3-container" style="text-align: center !important;width: 75% !important;padding-top: 5% !important;">
+    <h1 >Thank you for signing up!</h1>
+
+    <h4 > Now let’s get your first ad campaign created.</h4>
+    
+    <br/>
+    <div  >
+      <button mat-raised-button color="primary" (click)="createNewCampaign($event)">CREATE NEW CAMPAIGN</button>
+    </div>
 </div>
+<div class="w3-third w3-container" style="background-color:#e7effc;height:92vh !important;width: 25% !important;">
+ 
+
+    <table style="margin: 36% 4% 7% 4% !important;" >
+
+        <tr style="align-content: center;">
+            You’re about to place an ad on the newest OOH inventory
+        </tr>
+        <tr >
+            <mat-vertical-stepper [selectedIndex]="2" style="background-color: transparent;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+                [linear]="false" #stepper>
+                <mat-step>
+
+                    <ng-template matStepLabel>Create new account</ng-template>
+
+                </mat-step>
+
+                <mat-step>
+
+                    <ng-template matStepLabel>Set up your business profile </ng-template>
+
+                </mat-step>
+
+                <mat-step>
+
+                    <ng-template matStepLabel>Create your first campaign </ng-template>
+
+                </mat-step>
+            </mat-vertical-stepper>
+        </tr>
+    </table>
+</div>
+
+
 <router-outlet></router-outlet>
